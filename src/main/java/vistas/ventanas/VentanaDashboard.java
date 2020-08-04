@@ -7,7 +7,7 @@ import vistas.componentes.ComponentesDashboard;
 public class VentanaDashboard extends Ventana {
 
   public VentanaDashboard(){
-    super("Ventana Dashboard"); 
+    super("Dashboard"); 
     this.frame.setSize(1280, 720);
     ComponentesDashboard.set(this); 
   }

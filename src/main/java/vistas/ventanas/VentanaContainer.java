@@ -6,12 +6,14 @@ public class VentanaContainer {
 
   public Ventana ventanaLogin;
   public Ventana ventanaDashboard;
-  public Ventana VentanaUsuariosRegistrar;
+  public Ventana ventanaUsuariosRegistrar;
+  public Ventana ventanaUsuariosMostrar;
   
   private VentanaContainer(){
     this.ventanaLogin = new VentanaLogin();
     this.ventanaDashboard = new VentanaDashboard();
-    this.VentanaUsuariosRegistrar = new VentanaUsuariosRegistrar();
+    this.ventanaUsuariosRegistrar = new VentanaUsuariosRegistrar();
+    this.ventanaUsuariosMostrar = new VentanaUsuariosMostrar();
   }
 
   public static VentanaContainer getInstancia(){
@@ -24,7 +26,8 @@ public class VentanaContainer {
   public void cerrarVentanas(){
     this.ventanaLogin.frame.setVisible(false);
     this.ventanaDashboard.frame.setVisible(false);
-    this.VentanaUsuariosRegistrar.frame.setVisible(false);
+    this.ventanaUsuariosRegistrar.frame.setVisible(false);
+    this.ventanaUsuariosMostrar.frame.setVisible(false);
   }
 
 }

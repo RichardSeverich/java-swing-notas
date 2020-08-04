@@ -21,6 +21,7 @@ public class ComponentesDashboard {
     JMenuItem menuItemUsuariosMostrar =  new JMenuItem("Usuarios Mostrar");
     EventosNavegar eventosNavegar = new EventosNavegar();
     menuItemUsuariosRegistrar.addActionListener(eventosNavegar);
+    menuItemUsuariosMostrar.addActionListener(eventosNavegar);
     menuUsuarios.add(menuItemUsuariosRegistrar);
     menuUsuarios.add(menuItemUsuariosMostrar);
     menuBar.add(menuUsuarios);

@@ -8,6 +8,7 @@ public class VentanaUsuariosRegistrar extends VentanaDashboard {
 
   public VentanaUsuariosRegistrar(){
     super();
+    this.frame.setSize(550, 600);
     componentesUsuariosRegistrar.set(this); 
   }
 

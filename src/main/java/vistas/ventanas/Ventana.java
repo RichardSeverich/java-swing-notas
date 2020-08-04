@@ -2,7 +2,7 @@ package vistas.ventanas;
 
 import javax.swing.JFrame;
 
-public class Ventana {
+public abstract class Ventana {
 
   public JFrame frame;
   
