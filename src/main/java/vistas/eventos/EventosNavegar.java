@@ -14,10 +14,22 @@ public class EventosNavegar implements ActionListener {
   public void actionPerformed(ActionEvent actionEvent) {
     VentanaContainer.getInstancia().cerrarVentanas();
     switch(actionEvent.getActionCommand()) {
-      case "Usuario Registrar":
+      case "Usuarios Registrar":
         VentanaContainer.getInstancia().VentanaUsuariosRegistrar.frame.setVisible(true);
         break;
-      case "Usuario Mostrar":
+      case "Usuarios Mostrar":
+        // code block
+        break;
+      case "Estudiantes Registrar":
+        // code block
+        break;
+      case "Estudiantes Mostrar":
+        // code block
+        break;
+      case "Cursos Registrar":
+        // code block
+        break;
+      case "Cursos Mostrar":
         // code block
         break;
       default:

@@ -17,32 +17,31 @@ public class ComponentesDashboard {
     JMenuBar menuBar = new JMenuBar();
     // USUARIOS
     JMenu menuUsuarios = new JMenu("Usuarios"); 
-    JMenuItem menuItemUsuariosRegistrar =  new JMenuItem("Usuario Registrar");
-    JMenuItem menuItemUsuariosMostrar =  new JMenuItem("Usuario Mostrar");
+    JMenuItem menuItemUsuariosRegistrar =  new JMenuItem("Usuarios Registrar");
+    JMenuItem menuItemUsuariosMostrar =  new JMenuItem("Usuarios Mostrar");
     EventosNavegar eventosNavegar = new EventosNavegar();
     menuItemUsuariosRegistrar.addActionListener(eventosNavegar);
-
     menuUsuarios.add(menuItemUsuariosRegistrar);
     menuUsuarios.add(menuItemUsuariosMostrar);
     menuBar.add(menuUsuarios);
     // ESTUDIANTES
     JMenu menuEstudiantes = new JMenu("Estudiantes"); 
-    JMenuItem menuItemEstudiantesRegistrar =  new JMenuItem("Est. Registrar");
-    JMenuItem menuItemEstudiantesMostrar =  new JMenuItem("Est. Mostrar");
+    JMenuItem menuItemEstudiantesRegistrar =  new JMenuItem("Estudiantes Registrar");
+    JMenuItem menuItemEstudiantesMostrar =  new JMenuItem("Estudiantes Mostrar");
     menuEstudiantes.add(menuItemEstudiantesRegistrar);
     menuEstudiantes.add(menuItemEstudiantesMostrar);
     menuBar.add(menuEstudiantes);
     // MATERIAS
     JMenu menuMaterias = new JMenu("Materias"); 
-    JMenuItem menuItemMateriasRegistrar =  new JMenuItem("Materia Registrar");
-    JMenuItem menuItemMateriasMostrar =  new JMenuItem("Materia Mostrar");
+    JMenuItem menuItemMateriasRegistrar =  new JMenuItem("Materias Registrar");
+    JMenuItem menuItemMateriasMostrar =  new JMenuItem("Materias Mostrar");
     menuMaterias.add(menuItemMateriasRegistrar);
     menuMaterias.add(menuItemMateriasMostrar);
     menuBar.add(menuMaterias);
     // MATERIAS
     JMenu menuCursos = new JMenu("Cursos"); 
-    JMenuItem menuItemCursosRegistrar =  new JMenuItem("Curso Registrar");
-    JMenuItem menuItemCursosMostrar =  new JMenuItem("Curso Mostrar");
+    JMenuItem menuItemCursosRegistrar =  new JMenuItem("Cursos Registrar");
+    JMenuItem menuItemCursosMostrar =  new JMenuItem("Cursos Mostrar");
     menuCursos.add(menuItemCursosRegistrar);
     menuCursos.add(menuItemCursosMostrar);
     menuBar.add(menuCursos);
