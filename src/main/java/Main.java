@@ -1,10 +1,13 @@
-import vistas.ventanas.VentanaLogin;
+import vistas.ventanas.VentanaContainer;
 
 public class Main {
 
   public static void main(String[] args) {
-    VentanaLogin ventanaLogin = new VentanaLogin();
-    ventanaLogin.frame.setVisible(true);
+    VentanaContainer
+      .getInstancia()
+      .ventanaLogin
+      .frame
+      .setVisible(true);
   }
 
 }

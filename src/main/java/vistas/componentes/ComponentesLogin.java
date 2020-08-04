@@ -7,6 +7,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import vistas.ventanas.VentanaLogin;
+import vistas.eventos.EventosLogin;
 
 public class ComponentesLogin {
 
@@ -45,6 +46,9 @@ public class ComponentesLogin {
     positionX = 40;
     positionY = 110;
 	loginButton.setBounds(positionX, positionY, 80, 25);
+    // Set action listener
+    EventosLogin eventosLogin = new EventosLogin();
+    loginButton.addActionListener(eventosLogin);
 	panel.add(loginButton);
   }
 }
