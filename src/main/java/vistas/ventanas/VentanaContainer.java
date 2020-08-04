@@ -6,10 +6,12 @@ public class VentanaContainer {
 
   public Ventana ventanaLogin;
   public Ventana ventanaDashboard;
+  public Ventana VentanaUsuariosRegistrar;
   
   private VentanaContainer(){
     this.ventanaLogin = new VentanaLogin();
     this.ventanaDashboard = new VentanaDashboard();
+    this.VentanaUsuariosRegistrar = new VentanaUsuariosRegistrar();
   }
 
   public static VentanaContainer getInstancia(){
@@ -22,6 +24,7 @@ public class VentanaContainer {
   public void cerrarVentanas(){
     this.ventanaLogin.frame.setVisible(false);
     this.ventanaDashboard.frame.setVisible(false);
+    this.VentanaUsuariosRegistrar.frame.setVisible(false);
   }
 
 }

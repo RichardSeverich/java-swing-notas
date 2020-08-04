@@ -5,6 +5,7 @@ import javax.swing.JMenuItem ;
 import javax.swing.JMenuBar ;
 
 import vistas.ventanas.VentanaDashboard;
+import vistas.eventos.EventosNavegar;
 
 public class ComponentesDashboard {
 
@@ -16,43 +17,46 @@ public class ComponentesDashboard {
     JMenuBar menuBar = new JMenuBar();
     // USUARIOS
     JMenu menuUsuarios = new JMenu("Usuarios"); 
-    JMenuItem menuItemUsuariosRegistrar =  new JMenuItem("Registrar");
-    JMenuItem menuItemUsuariosMostrar =  new JMenuItem("Mostrar");
+    JMenuItem menuItemUsuariosRegistrar =  new JMenuItem("Usuario Registrar");
+    JMenuItem menuItemUsuariosMostrar =  new JMenuItem("Usuario Mostrar");
+    EventosNavegar eventosNavegar = new EventosNavegar();
+    menuItemUsuariosRegistrar.addActionListener(eventosNavegar);
+
     menuUsuarios.add(menuItemUsuariosRegistrar);
     menuUsuarios.add(menuItemUsuariosMostrar);
     menuBar.add(menuUsuarios);
     // ESTUDIANTES
     JMenu menuEstudiantes = new JMenu("Estudiantes"); 
-    JMenuItem menuItemEstudiantesRegistrar =  new JMenuItem("Registrar");
-    JMenuItem menuItemEstudiantesMostrar =  new JMenuItem("Mostrar");
+    JMenuItem menuItemEstudiantesRegistrar =  new JMenuItem("Est. Registrar");
+    JMenuItem menuItemEstudiantesMostrar =  new JMenuItem("Est. Mostrar");
     menuEstudiantes.add(menuItemEstudiantesRegistrar);
     menuEstudiantes.add(menuItemEstudiantesMostrar);
     menuBar.add(menuEstudiantes);
     // MATERIAS
     JMenu menuMaterias = new JMenu("Materias"); 
-    JMenuItem menuItemMateriasRegistrar =  new JMenuItem("Registrar");
-    JMenuItem menuItemMateriasMostrar =  new JMenuItem("Mostrar");
+    JMenuItem menuItemMateriasRegistrar =  new JMenuItem("Materia Registrar");
+    JMenuItem menuItemMateriasMostrar =  new JMenuItem("Materia Mostrar");
     menuMaterias.add(menuItemMateriasRegistrar);
     menuMaterias.add(menuItemMateriasMostrar);
     menuBar.add(menuMaterias);
     // MATERIAS
     JMenu menuCursos = new JMenu("Cursos"); 
-    JMenuItem menuItemCursosRegistrar =  new JMenuItem("Registrar");
-    JMenuItem menuItemCursosMostrar =  new JMenuItem("Mostrar");
+    JMenuItem menuItemCursosRegistrar =  new JMenuItem("Curso Registrar");
+    JMenuItem menuItemCursosMostrar =  new JMenuItem("Curso Mostrar");
     menuCursos.add(menuItemCursosRegistrar);
     menuCursos.add(menuItemCursosMostrar);
     menuBar.add(menuCursos);
     // NOTAS
     JMenu menuNotas = new JMenu("Notas"); 
-    JMenuItem menuItemNotasRegistrar =  new JMenuItem("Registrar");
-    JMenuItem menuItemNotasMostrar =  new JMenuItem("Mostrar");
+    JMenuItem menuItemNotasRegistrar =  new JMenuItem("Notas Registrar");
+    JMenuItem menuItemNotasMostrar =  new JMenuItem("Notas Mostrar");
     menuNotas.add(menuItemNotasRegistrar);
     menuNotas.add(menuItemNotasMostrar);
     menuBar.add(menuNotas);
     // FIRMA DIGITAL
     JMenu menuFirma = new JMenu("Firma Digital"); 
-    JMenuItem menuItemFirmaRegistrar =  new JMenuItem("Registrar");
-    JMenuItem menuItemFirmaMostrar =  new JMenuItem("Mostrar");
+    JMenuItem menuItemFirmaRegistrar =  new JMenuItem("Firma Registrar");
+    JMenuItem menuItemFirmaMostrar =  new JMenuItem("Firma Mostrar");
     menuFirma.add(menuItemFirmaRegistrar);
     menuFirma.add(menuItemFirmaMostrar);
     menuBar.add(menuFirma);
