@@ -10,7 +10,7 @@ Notas.
 ## Deploy / Installation 🔧
 
 1. gradlew build
-2. java -jar build/libs/some.jar
+2. java -jar build/libs/java-swing-notas.jar
 
 ## Screens
 
