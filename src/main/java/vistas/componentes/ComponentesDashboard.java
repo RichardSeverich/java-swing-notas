@@ -32,6 +32,13 @@ public class ComponentesDashboard {
     menuEstudiantes.add(menuItemEstudiantesRegistrar);
     menuEstudiantes.add(menuItemEstudiantesMostrar);
     menuBar.add(menuEstudiantes);
+    // CURSOS
+    JMenu menuCursos = new JMenu("Cursos"); 
+    JMenuItem menuItemCursosRegistrar =  new JMenuItem("Cursos Registrar");
+    JMenuItem menuItemCursosMostrar =  new JMenuItem("Cursos Mostrar");
+    menuCursos.add(menuItemCursosRegistrar);
+    menuCursos.add(menuItemCursosMostrar);
+    menuBar.add(menuCursos);
     // MATERIAS
     JMenu menuMaterias = new JMenu("Materias"); 
     JMenuItem menuItemMateriasRegistrar =  new JMenuItem("Materias Registrar");
@@ -39,13 +46,13 @@ public class ComponentesDashboard {
     menuMaterias.add(menuItemMateriasRegistrar);
     menuMaterias.add(menuItemMateriasMostrar);
     menuBar.add(menuMaterias);
-    // MATERIAS
-    JMenu menuCursos = new JMenu("Cursos"); 
-    JMenuItem menuItemCursosRegistrar =  new JMenuItem("Cursos Registrar");
-    JMenuItem menuItemCursosMostrar =  new JMenuItem("Cursos Mostrar");
-    menuCursos.add(menuItemCursosRegistrar);
-    menuCursos.add(menuItemCursosMostrar);
-    menuBar.add(menuCursos);
+    // INSCRIPCIONES
+    JMenu menuInscripciones = new JMenu("Inscripciones"); 
+    JMenuItem menuItemInscripcionesRegistrar =  new JMenuItem("Inscripciones Registrar");
+    JMenuItem menuItemInscripcionesMostrar =  new JMenuItem("Inscripciones Mostrar");
+    menuInscripciones.add(menuItemInscripcionesRegistrar);
+    menuInscripciones.add(menuItemInscripcionesMostrar);
+    menuBar.add(menuInscripciones);
     // NOTAS
     JMenu menuNotas = new JMenu("Notas"); 
     JMenuItem menuItemNotasRegistrar =  new JMenuItem("Notas Registrar");
