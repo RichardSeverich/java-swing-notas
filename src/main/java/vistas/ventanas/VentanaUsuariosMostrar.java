@@ -2,7 +2,7 @@ package vistas.ventanas;
 
 import javax.swing.JFrame;
 
-import vistas.componentes.componentesUsuariosRegistrar;
+//import vistas.componentes.ComponentesUsuariosRegistrar;
 
 public class VentanaUsuariosMostrar extends VentanaDashboard {
 

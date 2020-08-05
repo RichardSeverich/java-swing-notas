@@ -17,11 +17,18 @@ import org.jdatepicker.impl.JDatePickerImpl;
 
 import vistas.ventanas.VentanaUsuariosRegistrar;
 import vistas.utiles.DateLabelFormatter;
-//import vistas.eventos.EventosLogin;
+import vistas.eventos.EventosUsuariosRegistrar;
 
-public class componentesUsuariosRegistrar {
+public class ComponentesUsuariosRegistrar {
+  
+  public static JTextField fieldUsername;
+  public static JPasswordField fieldContrasena;
+  public static JTextField fieldNombres;
+  public static JTextField fieldApellidos;
+  public static JDatePickerImpl datePicker;
+  public static JComboBox tipoUsuarioCombox;
 
-  private componentesUsuariosRegistrar(){
+  private ComponentesUsuariosRegistrar(){
 
   }
 
@@ -38,28 +45,28 @@ public class componentesUsuariosRegistrar {
 
     // username
     JLabel labelUsername = new JLabel("Username");
-    JTextField fieldUsername = new JTextField();
+    fieldUsername = new JTextField();
     labelUsername.setBounds(50, 100, 100, 25);
     fieldUsername.setBounds(200, 100, 200, 25);
     panel.add(labelUsername);
     panel.add(fieldUsername);
     // Password
     JLabel labelContrasena = new JLabel("Contrasena");
-    JTextField fieldContrasena = new JTextField();
+    fieldContrasena = new JPasswordField();
     labelContrasena.setBounds(50, 150, 100, 25);
     fieldContrasena.setBounds(200, 150, 200, 25);
     panel.add(labelContrasena);
     panel.add(fieldContrasena);
     // Nombres
     JLabel labelNombres = new JLabel("Nombres");
-    JTextField fieldNombres = new JTextField();
+    fieldNombres = new JTextField();
     labelNombres.setBounds(50, 200, 100, 25);
     fieldNombres.setBounds(200, 200, 200, 25);
     panel.add(labelNombres);
     panel.add(fieldNombres);
     // Apellidos
     JLabel labelApellidos = new JLabel("Apellidos");
-    JTextField fieldApellidos = new JTextField();
+    fieldApellidos = new JTextField();
     labelApellidos.setBounds(50, 250, 100, 25);
     fieldApellidos.setBounds(200, 250, 200, 25);
     panel.add(labelApellidos);
@@ -73,7 +80,7 @@ public class componentesUsuariosRegistrar {
     properties.put("text.month", "Month");
     properties.put("text.year", "Year");
     JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
-    JDatePickerImpl datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+    datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
     labelFechaNacimiento.setBounds(50, 300, 120, 25);
     datePicker.setBounds(200, 300, 200, 25);
     panel.add(labelFechaNacimiento);
@@ -82,7 +89,7 @@ public class componentesUsuariosRegistrar {
     // Tipo Usuario
     JLabel labelTipoUsuario = new JLabel("Tipo Usuario");
     String[] comboxItems = { "Administrador", "Profesor"};
-    JComboBox tipoUsuarioCombox = new JComboBox(comboxItems);
+    tipoUsuarioCombox = new JComboBox(comboxItems);
     labelTipoUsuario.setBounds(50, 350, 120, 25);
     tipoUsuarioCombox.setBounds(200, 350, 200, 25);
     panel.add(labelTipoUsuario);
@@ -91,6 +98,8 @@ public class componentesUsuariosRegistrar {
     // Boton Registrar
     JButton registrarButton = new JButton("Registrar");
     registrarButton.setBounds(200, 420, 200, 30);
+    EventosUsuariosRegistrar eventosUsuariosRegistrar = new EventosUsuariosRegistrar();
+    registrarButton.addActionListener(eventosUsuariosRegistrar);
     panel.add(registrarButton);
 
     // Titulo y Borde
