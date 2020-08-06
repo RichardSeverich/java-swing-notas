@@ -7,6 +7,6 @@ CREATE TABLE users(
    last_name VARCHAR(20) NOT NULL,
    birth_date DATE NOT NULL,
    email TEXT NOT NULL,
-   type VARCHAR(6) NOT NULL,
+   type VARCHAR(13) NOT NULL,
    PRIMARY KEY (id)
 );

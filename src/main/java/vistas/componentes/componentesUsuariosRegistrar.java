@@ -39,13 +39,11 @@ public class ComponentesUsuariosRegistrar {
     ventana.frame.add(panel);
     panel.setBounds(200, 20, 500, 600);
     panel.setLayout(null);
-
     // Titulo
     JLabel labelTitulo = new JLabel("Registrar Usuarios");
     labelTitulo.setFont(new Font("Arial", Font.PLAIN, 22));
     labelTitulo.setBounds(200, 30, 250, 50);
     panel.add(labelTitulo);
-
     // dni
     JLabel labelDni= new JLabel("Numero Identidad");
     fieldDni = new JTextField();
@@ -53,7 +51,6 @@ public class ComponentesUsuariosRegistrar {
     fieldDni.setBounds(200, 100, 200, 25);
     panel.add(labelDni);
     panel.add(fieldDni);
-
     // username
     JLabel labelUsername = new JLabel("Username");
     fieldUsername = new JTextField();
@@ -75,7 +72,6 @@ public class ComponentesUsuariosRegistrar {
     fieldNombres.setBounds(200, 250, 200, 25);
     panel.add(labelNombres);
     panel.add(fieldNombres);
-
     // Apellidos
     JLabel labelApellidos = new JLabel("Apellidos");
     fieldApellidos = new JTextField();
@@ -83,7 +79,6 @@ public class ComponentesUsuariosRegistrar {
     fieldApellidos.setBounds(200, 300, 200, 25);
     panel.add(labelApellidos);
     panel.add(fieldApellidos);
-    
     // Fecha nacimiento
     JLabel labelFechaNacimiento = new JLabel("Fecha Nacimiento");
     UtilDateModel model = new UtilDateModel();
@@ -97,7 +92,6 @@ public class ComponentesUsuariosRegistrar {
     datePicker.setBounds(200, 350, 200, 25);
     panel.add(labelFechaNacimiento);
     panel.add(datePicker);
-  
     // Email
     JLabel labelEmail = new JLabel("Correo");
     fieldEmail = new JTextField();
@@ -105,7 +99,6 @@ public class ComponentesUsuariosRegistrar {
     fieldEmail.setBounds(200, 400, 200, 25);
     panel.add(labelEmail);
     panel.add(fieldEmail);
-
     // Tipo Usuario
     JLabel labelTipoUsuario = new JLabel("Tipo Usuario");
     String[] comboxItems = { "Administrador", "Profesor"};
@@ -114,14 +107,12 @@ public class ComponentesUsuariosRegistrar {
     tipoUsuarioCombox.setBounds(200, 450, 200, 25);
     panel.add(labelTipoUsuario);
     panel.add(tipoUsuarioCombox);
-
     // Boton Registrar
     JButton registrarButton = new JButton("Registrar");
     registrarButton.setBounds(200, 520, 200, 30);
     EventosUsuariosRegistrar eventosUsuariosRegistrar = new EventosUsuariosRegistrar();
     registrarButton.addActionListener(eventosUsuariosRegistrar);
     panel.add(registrarButton);
-
     // Titulo y Borde
     String title = "Registrar";
     Border border = BorderFactory.createTitledBorder(title);
