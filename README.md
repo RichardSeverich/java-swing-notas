@@ -6,6 +6,18 @@ Notas.
 
 1. Install Windows 10
 2. Install Java version 1.8.0_201
+3. Install postgres:10
+4. Optional docker:
+
+```
+docker pull postgres:10
+docker run -d --name postgresdb -e POSTGRES_PASSWORD=secret123 -p 5432:5432 postgres:10
+default user: postgres
+default dbname: postgres
+password: secret123
+```
+
+5. Optional Clients: HeidiSQ, Dbeaver
 
 ## Deploy / Installation 🔧
 

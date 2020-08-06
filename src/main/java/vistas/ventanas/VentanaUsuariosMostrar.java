@@ -8,7 +8,6 @@ public class VentanaUsuariosMostrar extends VentanaDashboard {
 
   public VentanaUsuariosMostrar(){
     super();
-    this.frame.setSize(720, 600);
   }
 
 }
