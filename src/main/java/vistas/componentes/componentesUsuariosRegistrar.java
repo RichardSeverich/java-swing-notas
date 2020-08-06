@@ -22,10 +22,12 @@ import vistas.eventos.EventosUsuariosRegistrar;
 public class ComponentesUsuariosRegistrar {
   
   public static JTextField fieldUsername;
+  public static JTextField fieldDni;
   public static JPasswordField fieldContrasena;
   public static JTextField fieldNombres;
   public static JTextField fieldApellidos;
   public static JDatePickerImpl datePicker;
+   public static JTextField fieldEmail;
   public static JComboBox tipoUsuarioCombox;
 
   private ComponentesUsuariosRegistrar(){
@@ -35,6 +37,7 @@ public class ComponentesUsuariosRegistrar {
   public static void set(VentanaUsuariosRegistrar ventana) {
     JPanel panel = new JPanel();
     ventana.frame.add(panel);
+    panel.setBounds(200, 20, 500, 600);
     panel.setLayout(null);
 
     // Titulo
@@ -43,32 +46,41 @@ public class ComponentesUsuariosRegistrar {
     labelTitulo.setBounds(200, 30, 250, 50);
     panel.add(labelTitulo);
 
+    // dni
+    JLabel labelDni= new JLabel("Numero Identidad");
+    fieldDni = new JTextField();
+    labelDni.setBounds(50, 100, 100, 25);
+    fieldDni.setBounds(200, 100, 200, 25);
+    panel.add(labelDni);
+    panel.add(fieldDni);
+
     // username
     JLabel labelUsername = new JLabel("Username");
     fieldUsername = new JTextField();
-    labelUsername.setBounds(50, 100, 100, 25);
-    fieldUsername.setBounds(200, 100, 200, 25);
+    labelUsername.setBounds(50, 150, 100, 25);
+    fieldUsername.setBounds(200, 150, 200, 25);
     panel.add(labelUsername);
     panel.add(fieldUsername);
     // Password
     JLabel labelContrasena = new JLabel("Contrasena");
     fieldContrasena = new JPasswordField();
-    labelContrasena.setBounds(50, 150, 100, 25);
-    fieldContrasena.setBounds(200, 150, 200, 25);
+    labelContrasena.setBounds(50, 200, 100, 25);
+    fieldContrasena.setBounds(200, 200, 200, 25);
     panel.add(labelContrasena);
     panel.add(fieldContrasena);
     // Nombres
     JLabel labelNombres = new JLabel("Nombres");
     fieldNombres = new JTextField();
-    labelNombres.setBounds(50, 200, 100, 25);
-    fieldNombres.setBounds(200, 200, 200, 25);
+    labelNombres.setBounds(50, 250, 100, 25);
+    fieldNombres.setBounds(200, 250, 200, 25);
     panel.add(labelNombres);
     panel.add(fieldNombres);
+
     // Apellidos
     JLabel labelApellidos = new JLabel("Apellidos");
     fieldApellidos = new JTextField();
-    labelApellidos.setBounds(50, 250, 100, 25);
-    fieldApellidos.setBounds(200, 250, 200, 25);
+    labelApellidos.setBounds(50, 300, 100, 25);
+    fieldApellidos.setBounds(200, 300, 200, 25);
     panel.add(labelApellidos);
     panel.add(fieldApellidos);
     
@@ -81,23 +93,31 @@ public class ComponentesUsuariosRegistrar {
     properties.put("text.year", "Year");
     JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
     datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
-    labelFechaNacimiento.setBounds(50, 300, 120, 25);
-    datePicker.setBounds(200, 300, 200, 25);
+    labelFechaNacimiento.setBounds(50, 350, 120, 25);
+    datePicker.setBounds(200, 350, 200, 25);
     panel.add(labelFechaNacimiento);
     panel.add(datePicker);
+  
+    // Email
+    JLabel labelEmail = new JLabel("Correo");
+    fieldEmail = new JTextField();
+    labelEmail.setBounds(50, 400, 100, 25);
+    fieldEmail.setBounds(200, 400, 200, 25);
+    panel.add(labelEmail);
+    panel.add(fieldEmail);
 
     // Tipo Usuario
     JLabel labelTipoUsuario = new JLabel("Tipo Usuario");
     String[] comboxItems = { "Administrador", "Profesor"};
     tipoUsuarioCombox = new JComboBox(comboxItems);
-    labelTipoUsuario.setBounds(50, 350, 120, 25);
-    tipoUsuarioCombox.setBounds(200, 350, 200, 25);
+    labelTipoUsuario.setBounds(50, 450, 120, 25);
+    tipoUsuarioCombox.setBounds(200, 450, 200, 25);
     panel.add(labelTipoUsuario);
     panel.add(tipoUsuarioCombox);
 
     // Boton Registrar
     JButton registrarButton = new JButton("Registrar");
-    registrarButton.setBounds(200, 420, 200, 30);
+    registrarButton.setBounds(200, 520, 200, 30);
     EventosUsuariosRegistrar eventosUsuariosRegistrar = new EventosUsuariosRegistrar();
     registrarButton.addActionListener(eventosUsuariosRegistrar);
     panel.add(registrarButton);
