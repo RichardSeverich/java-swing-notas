@@ -10,12 +10,12 @@ import listas.ContainerListas;
 
 public class ConexionSelectUsuarios {
 
-   public static void execute(String query) {
+   public static void execute() {
       Connection connection = Conexion.open();
       Statement statement = null;
       try {
          statement = connection.createStatement();
-         ResultSet resultSet = statement.executeQuery( "SELECT * FROM users;");
+         ResultSet resultSet = statement.executeQuery( "SELECT * FROM users");
          ContainerListas.getInstance().listaUsuarios.clear();
          while ( resultSet.next() ) {
             Usuario usuario = new Usuario();
@@ -35,7 +35,7 @@ public class ConexionSelectUsuarios {
          connection.close();
       } catch ( Exception e ) {
          System.err.println( e.getClass().getName()+": "+ e.getMessage() );
-         System.exit(0);
+         //System.exit(0);
       }
       System.out.println("Operation done successfully");
    }

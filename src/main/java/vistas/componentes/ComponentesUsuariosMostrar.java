@@ -10,6 +10,7 @@ import javax.swing.table.TableColumnModel;
 import java.awt.BorderLayout;
 
 import vistas.ventanas.VentanaUsuariosMostrar;
+import controlador.ControladorUsuarios;
 
 public class ComponentesUsuariosMostrar {
 
@@ -29,11 +30,13 @@ public class ComponentesUsuariosMostrar {
     };
 
     //actual data for the table in a 2d array
-    Object[][] datos = new Object[][] {
+    /*Object[][] datos = new Object[][] {
       {1, "5928025", 40.0, false, "John" , "John", "John", "John", "John", new JButton("Editar"), new JButton("Eliminar")},
       {2, "5928025", 70.0, false, "John", "John", "John", "John", "John", new JButton("Editar"), new JButton("Eliminar") },
       {100, "5928025", 60.0, true, "John", "John", "John", "John", "John", new JButton("Editar"), new JButton("Eliminar") },
-    };
+    };*/
+ 
+    Object[][] datos = ControladorUsuarios.getArray();
 
     JTable table = new JTable(datos, columnHeaders);
     table.getColumnModel().getColumn(0).setPreferredWidth(50);

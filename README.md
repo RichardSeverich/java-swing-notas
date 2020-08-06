@@ -19,10 +19,14 @@ password: secret123
 
 5. Optional Clients: HeidiSQ, Dbeaver
 
+Note: resolution recomented: 1920x1080
+
 ## Deploy / Installation 🔧
 
 1. gradlew build
-2. java -jar build/libs/java-swing-notas.jar
+2. execute all the queries in sql folder.
+   note: you shoudl create a data in public schema.
+3. java -jar build/libs/java-swing-notas.jar
 
 ## Screens
 
