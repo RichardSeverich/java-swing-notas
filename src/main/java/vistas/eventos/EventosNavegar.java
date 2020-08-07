@@ -4,6 +4,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import vistas.ventanas.VentanaContainer;
+import vistas.componentes.ComponentesUsuariosMostrar;
 
 public class EventosNavegar implements ActionListener {
 
@@ -18,6 +19,7 @@ public class EventosNavegar implements ActionListener {
         VentanaContainer.getInstancia().ventanaUsuariosRegistrar.frame.setVisible(true);
         break;
       case "Usuarios Mostrar":
+        ComponentesUsuariosMostrar.actualizarTabla();
         VentanaContainer.getInstancia().ventanaUsuariosMostrar.frame.setVisible(true);
         break;
       case "Estudiantes Registrar":
