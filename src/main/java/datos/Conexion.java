@@ -28,16 +28,17 @@ public class Conexion {
 
    private void openConnection() {
       try {
-         // example: jdbc:postgresql://192.168.0.100:5432/dbnotas
-         String cadenaConexion = this.driver+"://"+this.host+":"+this.port+"/"+this.dbName;
-         Class.forName(driverPackage);
-         this.connection = DriverManager.getConnection(cadenaConexion,this.dbUser, this.dbPassword);
+        // example: jdbc:postgresql://192.168.0.100:5432/dbnotas
+        String cadenaConexion = this.driver+"://"+this.host+":"+this.port+"/"+this.dbName;
+        Class.forName(driverPackage);
+        this.connection = DriverManager.getConnection(cadenaConexion,this.dbUser, this.dbPassword);
+        System.out.println("Opened database successfully");
       } catch (Exception e) {
-         e.printStackTrace();
-         System.err.println(e.getClass().getName()+": "+e.getMessage());
-         //System.exit(0);
+        e.printStackTrace();
+        System.err.println(e.getClass().getName()+": "+e.getMessage());
+        //System.exit(0);
       }
-      System.out.println("Opened database successfully");
+      
    }
    
    private static Conexion getInstance(){

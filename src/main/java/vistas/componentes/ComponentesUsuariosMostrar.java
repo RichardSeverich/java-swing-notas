@@ -1,5 +1,9 @@
 package vistas.componentes;
 
+import java.awt.BorderLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.BorderFactory;
@@ -7,14 +11,18 @@ import javax.swing.border.Border;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableColumnModel;
-import java.awt.BorderLayout;
+import javax.swing.table.DefaultTableModel;
 
 import vistas.ventanas.VentanaUsuariosMostrar;
 import controlador.ControladorUsuarios;
+import utiles.Render;
+import vistas.eventos.EventosUsuariosMostrar;
 
 public class ComponentesUsuariosMostrar {
 
-
+  public static DefaultTableModel defaultTableModel;
+  public static JTable table;
+  
   private ComponentesUsuariosMostrar(){
 
   }
@@ -28,17 +36,21 @@ public class ComponentesUsuariosMostrar {
     String[] columnHeaders = new String[] {"ID", "DNI", "USERNAME", "CONTRASENA", "NOMBRES", 
       "APELLIDOS", "FECHA NACIMIENTO", "EMAIL", "TIPO", "EDITAR", "ELIMINAR"
     };
-
-    //actual data for the table in a 2d array
-    /*Object[][] datos = new Object[][] {
-      {1, "5928025", 40.0, false, "John" , "John", "John", "John", "John", new JButton("Editar"), new JButton("Eliminar")},
-      {2, "5928025", 70.0, false, "John", "John", "John", "John", "John", new JButton("Editar"), new JButton("Eliminar") },
-      {100, "5928025", 60.0, true, "John", "John", "John", "John", "John", new JButton("Editar"), new JButton("Eliminar") },
-    };*/
  
     Object[][] datos = ControladorUsuarios.getArray();
 
-    JTable table = new JTable(datos, columnHeaders);
+    table = new JTable();
+    EventosUsuariosMostrar eventosUsuariosMostrar = new EventosUsuariosMostrar();
+    table.addMouseListener(eventosUsuariosMostrar);
+    table.setDefaultRenderer(Object.class, new Render());
+    defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
+       @Override
+      public boolean isCellEditable(int row, int column){
+        return false;
+      }
+    };
+    table.setModel(defaultTableModel);
+    //table.setEnabled(false);
     table.getColumnModel().getColumn(0).setPreferredWidth(50);
     table.getColumnModel().getColumn(1).setPreferredWidth(70);
     table.getColumnModel().getColumn(2).setPreferredWidth(90);
