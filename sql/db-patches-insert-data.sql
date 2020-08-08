@@ -23,4 +23,4 @@ INSERT INTO users (dni, username, password, name, last_name,  birth_date, email,
 INSERT INTO users (dni, username, password, name, last_name,  birth_date, email, type) VALUES ('4512477', 'hmene', 'secret55', 'Horacio', 'Meneces', '1985-06-20', 'Horacio.Mene@gmail.com', 'Profersor');
 INSERT INTO users (dni, username, password, name, last_name,  birth_date, email, type) VALUES ('5854744', 'pparker', 'secret', 'Peater', 'Parker', '1989-06-08', 'Peater.Parker@gmail.com', 'Profersor');
 INSERT INTO users (dni, username, password, name, last_name,  birth_date, email, type) VALUES ('5845477', 'chavo8', 'kiko45', 'Chavo', 'Del8', '1975-06-08', 'Chavo8@gmail.com', 'Profersor');
-INSERT INTO users (dni, username, password, name, last_name,  birth_date, email, type) VALUES ('5845477', 'pjirafales', 'kiko45', 'Ruben', 'Jirafales','1971-06-08', 'Jirafales@gmail.com', 'Profersor');
+INSERT INTO users (dni, username, password, name, last_name,  birth_date, email, type) VALUES ('5845478', 'pjirafales', 'kiko45', 'Ruben', 'Jirafales','1971-06-08', 'Jirafales@gmail.com', 'Profersor');
