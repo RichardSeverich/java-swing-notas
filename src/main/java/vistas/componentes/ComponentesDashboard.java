@@ -1,11 +1,11 @@
 package vistas.componentes;
 
 import javax.swing.JMenu;
-import javax.swing.JMenuItem ;
-import javax.swing.JMenuBar ;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
-import vistas.ventanas.VentanaDashboard;
 import vistas.eventos.EventosNavegar;
+import vistas.ventanas.VentanaDashboard;
 
 public class ComponentesDashboard {
 
@@ -13,6 +13,7 @@ public class ComponentesDashboard {
 
   }
 
+  /** Set Componentes.*/
   public static void set(VentanaDashboard ventana) {
     JMenuBar menuBar = new JMenuBar();
     // USUARIOS

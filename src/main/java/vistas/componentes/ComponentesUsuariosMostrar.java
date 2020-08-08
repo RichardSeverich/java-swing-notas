@@ -1,36 +1,35 @@
 package vistas.componentes;
 
+import datos.ConexionSelectUsuarios;
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.TableColumnModel;
+import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-
-import vistas.ventanas.VentanaUsuariosMostrar;
-import vistas.eventos.EventosUsuariosMostrar;
-import utiles.Render;
-import modelos.Usuario;
+import javax.swing.table.TableColumnModel;
 import listas.ContainerListas;
-import datos.ConexionSelectUsuarios;
+import modelos.Usuario;
+import utiles.Render;
+import vistas.eventos.EventosUsuariosMostrar;
+import vistas.ventanas.VentanaUsuariosMostrar;
 
 public class ComponentesUsuariosMostrar {
 
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
-  public static String[] columnHeaders = new String[] {"ID", "DNI", "USERNAME", "CONTRASENA", "NOMBRES", 
-      "APELLIDOS", "FECHA NACIMIENTO", "EMAIL", "TIPO", "EDITAR", "ELIMINAR"
+  public static String[] columnHeaders = new String[] {"ID", "DNI", "USERNAME", "CONTRASENA", 
+    "NOMBRES", "APELLIDOS", "FECHA NACIMIENTO", "EMAIL", "TIPO", "EDITAR", "ELIMINAR"
   };
-  
+
   private ComponentesUsuariosMostrar(){
   }
 
+  /** Set Componentes.*/
   public static void set(VentanaUsuariosMostrar ventana) {
     JPanel panel = new JPanel();
     panel.setBounds(40, 20, 800, 650);
@@ -38,8 +37,8 @@ public class ComponentesUsuariosMostrar {
     panel.setLayout(new BorderLayout());
     Object [][] datos = { {null, null, null, null, null, null, null, null, null, null, null} };
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
-       @Override
-      public boolean isCellEditable(int row, int column){
+      @Override
+      public boolean isCellEditable(int row, int column) {
         return false;
       }
     };
@@ -49,7 +48,9 @@ public class ComponentesUsuariosMostrar {
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
     //table.setEnabled(false);
-    JScrollPane scrollPane = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+    JScrollPane scrollPane = new JScrollPane(table, 
+        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
+        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     panel.add(scrollPane);
     // Titulo y Borde
@@ -58,6 +59,7 @@ public class ComponentesUsuariosMostrar {
     panel.setBorder(border);
   }
 
+  /** Actualiza tabla.*/
   public static void actualizarTabla() {
     Object[][] datos = construtirDatos();
     defaultTableModel.setDataVector(datos, columnHeaders);
@@ -84,7 +86,7 @@ public class ComponentesUsuariosMostrar {
     int size = ContainerListas.getInstance().listaUsuarios.size();
     Object[][] datos = new Object[size][11];
     int row = 0;
-    for (Usuario usuario : ContainerListas.getInstance().listaUsuarios){
+    for (Usuario usuario : ContainerListas.getInstance().listaUsuarios) {
       JButton botonEditar = new JButton("Editar");
       JButton botonEliminar = new JButton("Eliminar");
       botonEditar.setName("Editar");

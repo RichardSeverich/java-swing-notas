@@ -1,7 +1,7 @@
 package listas;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 import modelos.Usuario;
 
@@ -14,8 +14,9 @@ public class ContainerListas {
     this. listaUsuarios = new ArrayList<Usuario>();
   }
 
-  public static ContainerListas getInstance(){
-    if(containerListas == null){
+  /** retorna unica instancia. */
+  public static ContainerListas getInstance() {
+    if (containerListas == null) {
       containerListas = new ContainerListas();
     }
     return containerListas;

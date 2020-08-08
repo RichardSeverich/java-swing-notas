@@ -1,23 +1,21 @@
 package vistas.componentes;
 
+import java.awt.Font;
+import java.util.Properties;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.BorderFactory;
 import javax.swing.border.Border;
-import java.awt.Font;
-import java.util.Properties;
-
-import org.jdatepicker.impl.UtilDateModel;
 import org.jdatepicker.impl.JDatePanelImpl;
 import org.jdatepicker.impl.JDatePickerImpl;
-
-import vistas.ventanas.VentanaUsuariosRegistrar;
-import vistas.utiles.DateLabelFormatter;
+import org.jdatepicker.impl.UtilDateModel;
 import vistas.eventos.EventosUsuariosRegistrar;
+import vistas.utiles.DateLabelFormatter;
+import vistas.ventanas.VentanaUsuariosRegistrar;
 
 public class ComponentesUsuariosRegistrar {
   
@@ -27,13 +25,14 @@ public class ComponentesUsuariosRegistrar {
   public static JTextField fieldNombres;
   public static JTextField fieldApellidos;
   public static JDatePickerImpl datePicker;
-   public static JTextField fieldEmail;
+  public static JTextField fieldEmail;
   public static JComboBox tipoUsuarioCombox;
 
   private ComponentesUsuariosRegistrar(){
 
   }
 
+  /** Set Componentes.*/
   public static void set(VentanaUsuariosRegistrar ventana) {
     JPanel panel = new JPanel();
     ventana.frame.add(panel);
@@ -45,7 +44,7 @@ public class ComponentesUsuariosRegistrar {
     labelTitulo.setBounds(200, 30, 250, 50);
     panel.add(labelTitulo);
     // dni
-    JLabel labelDni= new JLabel("Numero Identidad");
+    JLabel labelDni = new JLabel("Numero Identidad");
     fieldDni = new JTextField();
     labelDni.setBounds(50, 100, 100, 25);
     fieldDni.setBounds(200, 100, 200, 25);
@@ -80,12 +79,12 @@ public class ComponentesUsuariosRegistrar {
     panel.add(labelApellidos);
     panel.add(fieldApellidos);
     // Fecha nacimiento
-    JLabel labelFechaNacimiento = new JLabel("Fecha Nacimiento");
     UtilDateModel model = new UtilDateModel();
     Properties properties = new Properties();
     properties.put("text.today", "Today");
     properties.put("text.month", "Month");
     properties.put("text.year", "Year");
+    JLabel labelFechaNacimiento = new JLabel("Fecha Nacimiento");
     JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
     datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
     labelFechaNacimiento.setBounds(50, 350, 120, 25);
