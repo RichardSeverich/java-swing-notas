@@ -1,6 +1,8 @@
 package vistas.validadores;
 
 import static javax.swing.JOptionPane.showMessageDialog;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import vistas.componentes.ComponentesUsuariosRegistrar;
 
@@ -11,25 +13,38 @@ public class ValidadorUsuarios {
   }
   
   public static boolean validar(){
+    String dni = ComponentesUsuariosRegistrar.fieldDni.getText();
     String username = ComponentesUsuariosRegistrar.fieldUsername.getText();
     String contrasena = ComponentesUsuariosRegistrar.fieldContrasena.getText();
     String nombres = ComponentesUsuariosRegistrar.fieldNombres.getText();
     String apellidos = ComponentesUsuariosRegistrar.fieldApellidos.getText();
     String fechaNacimiento = ComponentesUsuariosRegistrar.datePicker.getJFormattedTextField().getText();
+    String email = ComponentesUsuariosRegistrar.fieldEmail.getText();
     String tipoUsuario = ComponentesUsuariosRegistrar.tipoUsuarioCombox.getSelectedItem().toString();
-    if (username.length() < 4){
+    String emailRegex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+    Pattern emailPattern = Pattern.compile(emailRegex, Pattern.CASE_INSENSITIVE);
+    Matcher matcher = emailPattern.matcher(email);
+    Boolean esEmailValido = matcher.find(); // true si es valido.
+
+    if (!dni.matches("[0-9]+") || dni.length() != 7) {
+      showMessageDialog(null, "Error: DNI 7 numeros");
+      return false;
+    } else if (username.length() < 4) {
       showMessageDialog(null, "Error: Usuername minimo 4 caracteres");
       return false;
-    } else if (contrasena.length() < 4){
+    } else if (contrasena.length() < 4) {
       showMessageDialog(null, "Error: Contrasena minimo 4 caracteres");
       return false;
-    } else if (nombres.length() < 3){
+    } else if (nombres.length() < 3) {
       showMessageDialog(null, "Error: Nombres minimo 3 caracteres");
       return false;
-    } else if (apellidos.length() < 3){
+    } else if (apellidos.length() < 3) {
       showMessageDialog(null, "Error: Apellidos minimo 3 caracteres");
       return false;
-    } else if (fechaNacimiento.length() == 0){
+    } else if (!esEmailValido) {
+      showMessageDialog(null, "Error: Email no valido");
+      return false;
+    } else if (fechaNacimiento.length() == 0) {
       showMessageDialog(null, "Error: Fecha nacimiento esta vacio");
       return false;
     }

@@ -21,8 +21,8 @@ import vistas.eventos.EventosUsuariosRegistrar;
 
 public class ComponentesUsuariosRegistrar {
   
-  public static JTextField fieldUsername;
   public static JTextField fieldDni;
+  public static JTextField fieldUsername;
   public static JPasswordField fieldContrasena;
   public static JTextField fieldNombres;
   public static JTextField fieldApellidos;
