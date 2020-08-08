@@ -107,7 +107,7 @@ public class ComponentesUsuariosRegistrar {
     panel.add(labelTipoUsuario);
     panel.add(tipoUsuarioCombox);
     // Boton Registrar
-    JButton registrarButton = new JButton("Registrar");
+    JButton registrarButton = new JButton("Guardar");
     registrarButton.setBounds(200, 520, 200, 30);
     EventosUsuariosRegistrar eventosUsuariosRegistrar = new EventosUsuariosRegistrar();
     registrarButton.addActionListener(eventosUsuariosRegistrar);

@@ -48,8 +48,8 @@ public class ComponentesUsuariosMostrar {
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
     //table.setEnabled(false);
-    JScrollPane scrollPane = new JScrollPane(table, 
-        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, 
+    JScrollPane scrollPane = new JScrollPane(table,
+        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
         JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     panel.add(scrollPane);

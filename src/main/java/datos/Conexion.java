@@ -3,6 +3,7 @@ package datos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
+// https://www.tutorialspoint.com/postgresql/postgresql_java.htm
 public class Conexion {
 
   private static Conexion conexion;

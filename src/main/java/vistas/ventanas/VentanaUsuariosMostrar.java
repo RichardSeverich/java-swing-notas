@@ -6,7 +6,7 @@ import vistas.componentes.ComponentesUsuariosMostrar;
 
 public class VentanaUsuariosMostrar extends VentanaDashboard {
 
-  public VentanaUsuariosMostrar(){
+  public VentanaUsuariosMostrar() {
     super();
     ComponentesUsuariosMostrar.set(this);
   }
