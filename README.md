@@ -31,7 +31,11 @@ Note: resolution recomented: 1920x1080
 ## Screens
 
 <p align="center">
-  <img src="documentation/someimage.jpg">
+  <img src="documentation/ui-users-modal.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-users-table.jpg">
 </p>
 
 ## Contributing 🖇️
