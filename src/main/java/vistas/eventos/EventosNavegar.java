@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 
 import vistas.ventanas.VentanaContainer;
 import vistas.componentes.ComponentesUsuariosMostrar;
+import vistas.componentes.ComponentesUsuariosRegistrar;
 
 public class EventosNavegar implements ActionListener {
 
@@ -14,8 +15,10 @@ public class EventosNavegar implements ActionListener {
 
   public void actionPerformed(ActionEvent actionEvent) {
     VentanaContainer.getInstancia().cerrarVentanas();
+    EventosUsuariosRegistrar.editar = false;
     switch(actionEvent.getActionCommand()) {
       case "Usuarios Registrar":
+        ComponentesUsuariosRegistrar.limpiar();
         VentanaContainer.getInstancia().ventanaUsuariosRegistrar.frame.setVisible(true);
         break;
       case "Usuarios Mostrar":

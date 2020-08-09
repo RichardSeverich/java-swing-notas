@@ -32,7 +32,7 @@ public class ComponentesUsuariosMostrar {
   /** Set Componentes.*/
   public static void set(VentanaUsuariosMostrar ventana) {
     JPanel panel = new JPanel();
-    panel.setBounds(40, 20, 800, 650);
+    panel.setBounds(40, 20, 800, 630);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
     Object [][] datos = { {null, null, null, null, null, null, null, null, null, null, null} };

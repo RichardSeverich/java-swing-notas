@@ -26,6 +26,7 @@ public class ConexionInsertUsuarios {
     sql.append("'" + usuario.email + "',");
     sql.append("'" + usuario.tipo + "'");
     sql.append(");");
+    System.out.println(sql.toString());
     ConexionInsert.execute(sql.toString());
   }
 

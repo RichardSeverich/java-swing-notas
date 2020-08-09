@@ -36,7 +36,7 @@ public class ComponentesUsuariosRegistrar {
   public static void set(VentanaUsuariosRegistrar ventana) {
     JPanel panel = new JPanel();
     ventana.frame.add(panel);
-    panel.setBounds(200, 20, 500, 600);
+    panel.setBounds(200, 20, 500, 630);
     panel.setLayout(null);
     // Titulo
     JLabel labelTitulo = new JLabel("Registrar Usuarios");
@@ -87,6 +87,7 @@ public class ComponentesUsuariosRegistrar {
     JLabel labelFechaNacimiento = new JLabel("Fecha Nacimiento");
     JDatePanelImpl datePanel = new JDatePanelImpl(model, properties);
     datePicker = new JDatePickerImpl(datePanel, new DateLabelFormatter());
+    model.setSelected(true);
     labelFechaNacimiento.setBounds(50, 350, 120, 25);
     datePicker.setBounds(200, 350, 200, 25);
     panel.add(labelFechaNacimiento);
@@ -116,5 +117,17 @@ public class ComponentesUsuariosRegistrar {
     String title = "Registrar";
     Border border = BorderFactory.createTitledBorder(title);
     panel.setBorder(border);
+  }
+
+  /** Limpia comoponentes */
+  public static void limpiar() {
+    // Set valores a los componenentes del modal.
+    ComponentesUsuariosRegistrar.fieldDni.setText("");
+    ComponentesUsuariosRegistrar.fieldUsername.setText("");
+    ComponentesUsuariosRegistrar.fieldContrasena.setText("");
+    ComponentesUsuariosRegistrar.fieldNombres.setText("");
+    ComponentesUsuariosRegistrar.fieldApellidos.setText("");
+    ComponentesUsuariosRegistrar.fieldEmail.setText("");
+    ComponentesUsuariosRegistrar.tipoUsuarioCombox.setSelectedItem("");
   }
 }

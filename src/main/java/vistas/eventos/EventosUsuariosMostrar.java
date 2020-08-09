@@ -5,8 +5,10 @@ import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import static javax.swing.JOptionPane.showMessageDialog;
 
-import vistas.validadores.ValidadorUsuarios;
 import vistas.componentes.ComponentesUsuariosMostrar;
+import vistas.componentes.ComponentesUsuariosRegistrar;
+import vistas.validadores.ValidadorUsuarios;
+import vistas.ventanas.VentanaContainer;
 
 public class EventosUsuariosMostrar extends MouseAdapter {
 
@@ -23,11 +25,45 @@ public class EventosUsuariosMostrar extends MouseAdapter {
       .getY()/ComponentesUsuariosMostrar.table.getRowHeight();
     Object value = ComponentesUsuariosMostrar.table.getValueAt(row, column);
     if(value instanceof JButton){
-      ((JButton)value).doClick();
+      //((JButton)value).doClick();
       JButton button = (JButton) value;
-      String name = button.getName();
-      System.out.println(name);
+      String nombreBoton = button.getName();
+      if(nombreBoton == "Editar"){
+        this.editar(row);
+      } else {
+
+      }
     }
+  }
+
+  private void editar(int row){
+    // Obtener valores de la tabla
+    int id = (int) ComponentesUsuariosMostrar.table.getValueAt(row, 0);
+    String dni = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 1);
+    String username = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 2);
+    String contrasena = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 3);
+    String nombres = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 4);
+    String apellidos = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 5);
+    String fechaNacimiento = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 6);
+    String email = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 7);
+    String tipo = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 8);
+    // Set valores a los componenentes del modal.
+    ComponentesUsuariosRegistrar.fieldDni.setText(dni);
+    ComponentesUsuariosRegistrar.fieldUsername.setText(username);
+    ComponentesUsuariosRegistrar.fieldContrasena.setText(contrasena);
+    ComponentesUsuariosRegistrar.fieldNombres.setText(nombres);
+    ComponentesUsuariosRegistrar.fieldApellidos.setText(apellidos);
+    ComponentesUsuariosRegistrar.datePicker.getJFormattedTextField().setText(fechaNacimiento);
+    ComponentesUsuariosRegistrar.fieldEmail.setText(email);
+    ComponentesUsuariosRegistrar.tipoUsuarioCombox.setSelectedItem(tipo);
+    // Abrir usuarios modal.
+    EventosUsuariosRegistrar.editar = true;
+    EventosUsuariosRegistrar.id = id;
+    VentanaContainer.getInstancia().cerrarVentanas();
+    VentanaContainer.getInstancia().ventanaUsuariosRegistrar.frame.setVisible(true);
+  }
+  private void eliminar(){
+
   }
 
 }

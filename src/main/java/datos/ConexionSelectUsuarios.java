@@ -14,9 +14,11 @@ public class ConexionSelectUsuarios {
   public static void execute() {
     Connection connection = Conexion.open();
     Statement statement = null;
+    String sql = "SELECT * FROM users";
+    System.out.println(sql);
     try {
       statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+      ResultSet resultSet = statement.executeQuery(sql);
       ContainerListas.getInstance().listaUsuarios.clear();
       while (resultSet.next()) {
         Usuario usuario = new Usuario();

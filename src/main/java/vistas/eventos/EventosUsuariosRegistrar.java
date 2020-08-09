@@ -3,6 +3,8 @@ package vistas.eventos;
 import static javax.swing.JOptionPane.showMessageDialog;
 
 import datos.ConexionInsertUsuarios;
+import datos.ConexionUpdateUsuarios;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -13,8 +15,12 @@ import vistas.validadores.ValidadorUsuarios;
 
 public class EventosUsuariosRegistrar implements ActionListener {
 
-  public EventosUsuariosRegistrar() {
+  public static boolean editar;
+  public static int id;
 
+  public EventosUsuariosRegistrar() {
+    this.editar = false;
+    this.id = 0;
   }
 
   public void actionPerformed(ActionEvent actionEvent) {
@@ -30,9 +36,23 @@ public class EventosUsuariosRegistrar implements ActionListener {
         .getJFormattedTextField().getText();
       usuario.email = ComponentesUsuariosRegistrar.fieldEmail.getText();
       usuario.tipo = ComponentesUsuariosRegistrar.tipoUsuarioCombox.getSelectedItem().toString();
-      ConexionInsertUsuarios.execute(usuario);
-      showMessageDialog(null, "Registrado exitosamente");
+      if(this.editar) {
+        this.modificar(usuario);
+      } else {
+        this.crear(usuario);
+      }
     }
+  }
+
+  private void crear(Usuario usuario){
+    ConexionInsertUsuarios.execute(usuario);
+    showMessageDialog(null, "Registrado exitosamente");
+  }
+
+  private void modificar(Usuario usuario){
+    usuario.id = this.id;
+    ConexionUpdateUsuarios.execute(usuario);
+    showMessageDialog(null, "Editado exitosamente");
   }
 
 }
