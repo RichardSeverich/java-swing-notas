@@ -24,9 +24,15 @@ Note: resolution recomented: 1920x1080
 ## Deploy / Installation 🔧
 
 1. gradlew build
-2. execute all the queries in sql folder.
-   note: you shoudl create a data in public schema.
-3. java -jar build/libs/java-swing-notas.jar
+
+2. Execute all the queries in sql folder in your data bases.
+
+- Create data bases.
+- Create tables.
+- Note: you should create a tables in public schema.
+
+3. Config config.properties file.
+4. java -jar build/libs/java-swing-notas.jar
 
 ## Screens
 
