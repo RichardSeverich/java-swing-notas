@@ -20,11 +20,11 @@ public class Conexion {
     this.connection = null;
     this.driverPackage = "org.postgresql.Driver";
     this.driver = "jdbc:postgresql";
-    this.host = "192.168.0.100";
-    this.port = "5432";
-    this.dbName = "dbnotas";
-    this.dbUser = "postgres";
-    this.dbPassword = "secret123";
+    this.host = ReadConfigProperties.host;
+    this.port = ReadConfigProperties.port;
+    this.dbName = ReadConfigProperties.dbName;
+    this.dbUser = ReadConfigProperties.dbUser;
+    this.dbPassword = ReadConfigProperties.dbPassword;
   }
 
   private void openConnection() {
