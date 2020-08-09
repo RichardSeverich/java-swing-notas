@@ -49,6 +49,7 @@ public class Conexion {
     return conexion;
   }
 
+  /**Abre conexion.*/
   public static Connection open() {
     getInstance().openConnection();
     return getInstance().connection;

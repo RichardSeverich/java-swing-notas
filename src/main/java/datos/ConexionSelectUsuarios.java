@@ -10,7 +10,7 @@ import modelos.Usuario;
 
 public class ConexionSelectUsuarios {
 
-  /**Ejecuta Comando SQL.*/
+  /**Construye SQL.*/
   public static void execute() {
     Connection connection = Conexion.open();
     Statement statement = null;

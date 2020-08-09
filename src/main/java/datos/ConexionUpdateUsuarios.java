@@ -9,7 +9,7 @@ public class ConexionUpdateUsuarios {
 
   }
 
-  /**Ejecuta Comando SQL.*/
+  /**Construye SQL.*/
   public static void execute(Usuario usuario) {
     StringBuilder sql = new StringBuilder();
     sql.append("UPDATE users SET");

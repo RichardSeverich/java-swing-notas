@@ -1,14 +1,16 @@
 package vistas.eventos;
 
+import datos.ConexionDelete;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
 import static javax.swing.JOptionPane.showMessageDialog;
-
 import vistas.componentes.ComponentesUsuariosMostrar;
 import vistas.componentes.ComponentesUsuariosRegistrar;
 import vistas.validadores.ValidadorUsuarios;
 import vistas.ventanas.VentanaContainer;
+
+import javax.swing.JOptionPane;
 
 public class EventosUsuariosMostrar extends MouseAdapter {
 
@@ -30,8 +32,8 @@ public class EventosUsuariosMostrar extends MouseAdapter {
       String nombreBoton = button.getName();
       if(nombreBoton == "Editar"){
         this.editar(row);
-      } else {
-
+      } else if(nombreBoton == "Eliminar") {
+        this.eliminar(row);
       }
     }
   }
@@ -62,8 +64,16 @@ public class EventosUsuariosMostrar extends MouseAdapter {
     VentanaContainer.getInstancia().cerrarVentanas();
     VentanaContainer.getInstancia().ventanaUsuariosRegistrar.frame.setVisible(true);
   }
-  private void eliminar(){
 
+  private void eliminar(int row) {
+    int id = (int) ComponentesUsuariosMostrar.table.getValueAt(row, 0);
+    // Si = 0, No = 1
+    String mensaje = "Realmente desea realizar esta accion";
+    int result = JOptionPane.showConfirmDialog(null, mensaje, "Confirmacion",
+       JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    if(result == 0) {
+      ConexionDelete.execute("users", id);
+      ComponentesUsuariosMostrar.actualizarTabla();
+    }
   }
-
 }

@@ -9,6 +9,7 @@ public class ConexionInsertUsuarios {
 
   }
 
+  /**Construye SQL.*/
   public static void execute(Usuario usuario) {
     StringBuilder sql = new StringBuilder();
     sql.append("INSERT INTO users");
