@@ -4,36 +4,48 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-import listas.ContainerListas;
 import modelos.Usuario;
+import listas.ContainerListas;
 
-public class ConexionSelectUsuarios {
+public class ConexionSelectLogin {
 
-  public ConexionSelectUsuarios() {
+  public ConexionSelectLogin() {
 
   }
 
   /**Construye SQL.*/
-  public static void execute() {
+  public static void execute(String userName, String password) {
     Connection connection = Conexion.open();
     Statement statement = null;
-    String sql = "SELECT * FROM users";
+    StringBuilder sql = new StringBuilder();
+    sql.append("SELECT * FROM users");
+    sql.append(" ");
+    sql.append("WHERE");
+    sql.append(" ");
+    sql.append("username");
+    sql.append(" ");
+    sql.append("=");
+    sql.append(" ");
+    sql.append("'" + userName + "'");
+    sql.append(" ");
+    sql.append("AND");
+    sql.append(" ");
+    sql.append("password");
+    sql.append(" ");
+    sql.append("=");
+    sql.append(" ");
+    sql.append("'" + password + "'");
+    sql.append(";");
     System.out.println(sql);
     try {
       statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery(sql);
+      ResultSet resultSet = statement.executeQuery(sql.toString());
       ContainerListas.getInstance().listaUsuarios.clear();
       while (resultSet.next()) {
         Usuario usuario = new Usuario();
         usuario.id = resultSet.getInt("id");
-        usuario.dni = resultSet.getString("dni");
         usuario.username = resultSet.getString("username");
         usuario.contrasena = resultSet.getString("password");
-        usuario.nombres = resultSet.getString("name"); 
-        usuario.apellidos = resultSet.getString("last_name");
-        usuario.fechaNacimiento = resultSet.getString("birth_date"); 
-        usuario.email = resultSet.getString("email"); 
-        usuario.tipo = resultSet.getString("type");
         ContainerListas.getInstance().listaUsuarios.add(usuario);
       }
       resultSet.close();

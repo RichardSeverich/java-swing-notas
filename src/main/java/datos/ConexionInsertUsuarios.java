@@ -30,5 +30,4 @@ public class ConexionInsertUsuarios {
     System.out.println(sql.toString());
     ConexionInsert.execute(sql.toString());
   }
-
 }

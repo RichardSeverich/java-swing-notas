@@ -24,9 +24,8 @@ public class ConexionUpdateUsuarios {
     sql.append("type = '" + usuario.tipo + "'");
     sql.append(" ");
     sql.append("WHERE ");
-    sql.append("id=" + usuario.id + ";");
+    sql.append("id =" + usuario.id + ";");
     System.out.println(sql.toString());
     ConexionInsert.execute(sql.toString());
   }
-
 }

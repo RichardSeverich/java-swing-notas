@@ -1,6 +1,6 @@
 package vistas.componentes;
 
-import datos.ConexionSelectUsuarios;
+import datos.ConexionSelectCursos;
 import java.awt.BorderLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -10,38 +10,36 @@ import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import listas.ContainerListas;
-import modelos.Usuario;
+import modelos.Curso;
 import vistas.utiles.Render;
-import vistas.eventos.EventosUsuariosMostrar;
-import vistas.ventanas.VentanaUsuariosMostrar;
+import vistas.eventos.EventosCursosMostrar;
+import vistas.ventanas.VentanaCursosMostrar;
 
-public class ComponentesUsuariosMostrar {
+public class ComponentesCursosMostrar {
 
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
-  public static String[] columnHeaders = new String[] {"ID", "DNI", "USERNAME", "CONTRASENA", 
-    "NOMBRES", "APELLIDOS", "FECHA NACIMIENTO", "EMAIL", "TIPO", "EDITAR", "ELIMINAR"
-  };
+  public static String[] columnHeaders = new String[] {"ID", "NOMBRE", "EDITAR", "ELIMINAR"};
 
-  private ComponentesUsuariosMostrar(){
+  private ComponentesCursosMostrar(){
   }
 
   /** Set Componentes.*/
-  public static void set(VentanaUsuariosMostrar ventana) {
+  public static void set(VentanaCursosMostrar ventana) {
     JPanel panel = new JPanel();
     panel.setBounds(40, 20, 800, 630);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
-    Object [][] datos = { {null, null, null, null, null, null, null, null, null, null, null} };
+    Object [][] datos = { {null, null, null, null} };
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
       @Override
       public boolean isCellEditable(int row, int column) {
         return false;
       }
     };
-    EventosUsuariosMostrar eventosUsuariosMostrar = new EventosUsuariosMostrar();
+    EventosCursosMostrar eventosCursosMostrar = new EventosCursosMostrar();
     table = new JTable();
-    table.addMouseListener(eventosUsuariosMostrar);
+    table.addMouseListener(eventosCursosMostrar);
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
     //table.setEnabled(false);
@@ -66,42 +64,27 @@ public class ComponentesUsuariosMostrar {
   private static void setPreferredWidth() {
     // Set columns width
     table.getColumnModel().getColumn(0).setPreferredWidth(50);
-    table.getColumnModel().getColumn(1).setPreferredWidth(70);
+    table.getColumnModel().getColumn(1).setPreferredWidth(120);
     table.getColumnModel().getColumn(2).setPreferredWidth(90);
-    table.getColumnModel().getColumn(3).setPreferredWidth(120);
-    table.getColumnModel().getColumn(4).setPreferredWidth(120);
-    table.getColumnModel().getColumn(5).setPreferredWidth(120);
-    table.getColumnModel().getColumn(6).setPreferredWidth(125);
-    table.getColumnModel().getColumn(7).setPreferredWidth(170);
-    table.getColumnModel().getColumn(8).setPreferredWidth(90);
-    table.getColumnModel().getColumn(9).setPreferredWidth(90);
-    table.getColumnModel().getColumn(10).setPreferredWidth(90);
+    table.getColumnModel().getColumn(3).setPreferredWidth(90);
   }
 
   private static Object[][] construtirDatos() {
-    ConexionSelectUsuarios.execute();
-    int size = ContainerListas.getInstance().listaUsuarios.size();
-    Object[][] datos = new Object[size][11];
+    ConexionSelectCursos.execute();
+    int size = ContainerListas.getInstance().listaCursos.size();
+    Object[][] datos = new Object[size][4];
     int row = 0;
-    for (Usuario usuario : ContainerListas.getInstance().listaUsuarios) {
+    for (Curso curso : ContainerListas.getInstance().listaCursos) {
       JButton botonEditar = new JButton("Editar");
       JButton botonEliminar = new JButton("Eliminar");
       botonEditar.setName("Editar");
       botonEliminar.setName("Eliminar");
-      datos[row][0] = usuario.id;
-      datos[row][1] = usuario.dni;
-      datos[row][2] = usuario.username;
-      datos[row][3] = usuario.contrasena;
-      datos[row][4] = usuario.nombres;
-      datos[row][5] = usuario.apellidos;
-      datos[row][6] = usuario.fechaNacimiento;
-      datos[row][7] = usuario.email;
-      datos[row][8] = usuario.tipo;
-      datos[row][9] = botonEditar;
-      datos[row][10] = botonEliminar;
+      datos[row][0] = curso.id;
+      datos[row][1] = curso.nombre;
+      datos[row][2] = botonEditar;
+      datos[row][3] = botonEliminar;
       row++;
     }
     return datos;
   }
-
 }

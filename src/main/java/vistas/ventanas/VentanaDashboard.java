@@ -1,7 +1,5 @@
 package vistas.ventanas;
 
-import javax.swing.JFrame;
-
 import vistas.componentes.ComponentesDashboard;
 
 public class VentanaDashboard extends Ventana {
@@ -12,5 +10,4 @@ public class VentanaDashboard extends Ventana {
     this.frame.setLayout(null);
     ComponentesDashboard.set(this); 
   }
-
 }

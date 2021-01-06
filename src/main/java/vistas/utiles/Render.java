@@ -1,4 +1,4 @@
-package utiles;
+package vistas.utiles;
 
 import java.awt.Component;
 import javax.swing.JButton;

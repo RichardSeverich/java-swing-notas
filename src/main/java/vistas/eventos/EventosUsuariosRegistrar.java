@@ -54,5 +54,4 @@ public class EventosUsuariosRegistrar implements ActionListener {
     ConexionUpdateUsuarios.execute(usuario);
     showMessageDialog(null, "Editado exitosamente");
   }
-
 }

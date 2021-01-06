@@ -1,7 +1,5 @@
 package vistas.ventanas;
 
-import javax.swing.JFrame;
-
 import vistas.componentes.ComponentesUsuariosMostrar;
 
 public class VentanaUsuariosMostrar extends VentanaDashboard {
@@ -10,5 +8,4 @@ public class VentanaUsuariosMostrar extends VentanaDashboard {
     super();
     ComponentesUsuariosMostrar.set(this);
   }
-
 }

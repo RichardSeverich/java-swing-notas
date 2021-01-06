@@ -4,6 +4,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import vistas.ventanas.VentanaContainer;
+import vistas.componentes.ComponentesCursosRegistrar;
+import vistas.componentes.ComponentesCursosMostrar;
+import vistas.componentes.ComponentesEstudiantesMostrar;
+import vistas.componentes.ComponentesEstudiantesRegistrar;
+import vistas.componentes.ComponentesMateriasMostrar;
+import vistas.componentes.ComponentesMateriasRegistrar;
 import vistas.componentes.ComponentesUsuariosMostrar;
 import vistas.componentes.ComponentesUsuariosRegistrar;
 
@@ -26,16 +32,28 @@ public class EventosNavegar implements ActionListener {
         VentanaContainer.getInstancia().ventanaUsuariosMostrar.frame.setVisible(true);
         break;
       case "Estudiantes Registrar":
-        // code block
+        ComponentesEstudiantesRegistrar.limpiar();
+        VentanaContainer.getInstancia().ventanaEstudiantesRegistrar.frame.setVisible(true);
         break;
       case "Estudiantes Mostrar":
-        // code block
+        ComponentesEstudiantesMostrar.actualizarTabla();
+        VentanaContainer.getInstancia().ventanaEstudiantesMostrar.frame.setVisible(true);
         break;
       case "Cursos Registrar":
-        // code block
+        ComponentesCursosRegistrar.limpiar();
+        VentanaContainer.getInstancia().ventanaCursosRegistrar.frame.setVisible(true);
         break;
       case "Cursos Mostrar":
-        // code block
+        ComponentesCursosMostrar.actualizarTabla();
+        VentanaContainer.getInstancia().ventanaCursosMostrar.frame.setVisible(true);
+        break;
+      case "Materias Registrar":
+        ComponentesMateriasRegistrar.limpiar();
+        VentanaContainer.getInstancia().ventanaMateriasRegistrar.frame.setVisible(true);
+        break;
+      case "Materias Mostrar":
+        ComponentesMateriasMostrar.actualizarTabla();
+        VentanaContainer.getInstancia().ventanaMateriasMostrar.frame.setVisible(true);
         break;
       default:
         // code block

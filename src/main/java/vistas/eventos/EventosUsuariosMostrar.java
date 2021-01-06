@@ -4,10 +4,8 @@ import datos.ConexionDelete;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
-import static javax.swing.JOptionPane.showMessageDialog;
 import vistas.componentes.ComponentesUsuariosMostrar;
 import vistas.componentes.ComponentesUsuariosRegistrar;
-import vistas.validadores.ValidadorUsuarios;
 import vistas.ventanas.VentanaContainer;
 
 import javax.swing.JOptionPane;

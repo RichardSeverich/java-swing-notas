@@ -1,7 +1,6 @@
 package datos;
 
 import java.lang.StringBuilder;
-import modelos.Usuario;
 
 public class ConexionDelete {
 
@@ -20,5 +19,4 @@ public class ConexionDelete {
     System.out.println(sql.toString());
     ConexionInsert.execute(sql.toString());
   }
-
 }
