@@ -109,3 +109,6 @@ INSERT INTO subjects (name) VALUES ('informatica');
 INSERT INTO subjects (name) VALUES ('c. sociales');
 INSERT INTO subjects (name) VALUES ('aleman');
 INSERT INTO subjects (name) VALUES ('ruso');
+
+--Courses Subjects
+INSERT INTO courses_subjects (id_course, id_subject) VALUES (1,2);

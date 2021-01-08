@@ -38,3 +38,12 @@ CREATE TABLE subjects(
    name VARCHAR(20) NOT NULL,
    PRIMARY KEY (id)
 );
+
+--TABLE COURSES SUBJECTS
+CREATE TABLE courses_subjects(
+   id serial,
+   id_course int REFERENCES courses(id),
+   id_subject int REFERENCES subjects(id),
+   UNIQUE (id_subject, id_course),
+   PRIMARY KEY (id)
+);

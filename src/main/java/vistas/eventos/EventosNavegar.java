@@ -10,6 +10,8 @@ import vistas.componentes.ComponentesEstudiantesMostrar;
 import vistas.componentes.ComponentesEstudiantesRegistrar;
 import vistas.componentes.ComponentesMateriasMostrar;
 import vistas.componentes.ComponentesMateriasRegistrar;
+import vistas.componentes.ComponentesPlanRegistrarCurso;
+import vistas.componentes.ComponentesPlanRegistrarMateria;
 import vistas.componentes.ComponentesUsuariosMostrar;
 import vistas.componentes.ComponentesUsuariosRegistrar;
 
@@ -54,6 +56,10 @@ public class EventosNavegar implements ActionListener {
       case "Materias Mostrar":
         ComponentesMateriasMostrar.actualizarTabla();
         VentanaContainer.getInstancia().ventanaMateriasMostrar.frame.setVisible(true);
+        break;
+      case "Plan Registrar":
+        ComponentesPlanRegistrarCurso.actualizarTabla();
+        VentanaContainer.getInstancia().ventanaPlanRegistrarCurso.frame.setVisible(true);
         break;
       default:
         // code block

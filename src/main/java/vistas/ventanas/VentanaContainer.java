@@ -1,9 +1,7 @@
 package vistas.ventanas;
 
 public class VentanaContainer {
-
   public static VentanaContainer ventanaContainer;
-
   public Ventana ventanaLogin;
   public Ventana ventanaDashboard;
   public Ventana ventanaUsuariosRegistrar;
@@ -14,6 +12,8 @@ public class VentanaContainer {
   public Ventana ventanaCursosMostrar;
   public Ventana ventanaMateriasRegistrar;
   public Ventana ventanaMateriasMostrar;
+  public Ventana ventanaPlanRegistrarCurso;
+  public Ventana ventanaPlanRegistrarMateria;
 
   private VentanaContainer(){
     this.ventanaLogin = new VentanaLogin();
@@ -26,6 +26,8 @@ public class VentanaContainer {
     this.ventanaCursosMostrar = new VentanaCursosMostrar();
     this.ventanaMateriasRegistrar = new VentanaMateriasRegistrar();
     this.ventanaMateriasMostrar = new VentanaMateriasMostrar();
+    this.ventanaPlanRegistrarCurso = new VentanaPlanRegistrarCurso();
+    this.ventanaPlanRegistrarMateria = new VentanaPlanRegistrarMateria();
   }
 
   public static VentanaContainer getInstancia(){
@@ -46,5 +48,7 @@ public class VentanaContainer {
     this.ventanaCursosMostrar.frame.setVisible(false);
     this.ventanaMateriasRegistrar.frame.setVisible(false);
     this.ventanaMateriasMostrar.frame.setVisible(false);
+    this.ventanaPlanRegistrarCurso.frame.setVisible(false);
+    this.ventanaPlanRegistrarMateria.frame.setVisible(false);
   }
 }

@@ -62,6 +62,8 @@ public class ComponentesDashboard {
     JMenu menuPlanEstudios = new JMenu("Plan Estudios"); 
     JMenuItem menuItemPlanEstudiosRegistrar =  new JMenuItem("Plan Registrar");
     JMenuItem menuItemPlanEstudiosMostrar =  new JMenuItem("Plan Mostrar");
+    menuItemPlanEstudiosRegistrar.addActionListener(eventosNavegar);
+    
     menuPlanEstudios.add(menuItemPlanEstudiosRegistrar);
     menuPlanEstudios.add(menuItemPlanEstudiosMostrar);
     menuBar.add(menuPlanEstudios);
