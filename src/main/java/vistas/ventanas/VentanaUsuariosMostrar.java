@@ -1,14 +1,17 @@
 package vistas.ventanas;
 
-import javax.swing.JFrame;
-
 import vistas.componentes.ComponentesUsuariosMostrar;
 
+/**
+* Class.
+*/
 public class VentanaUsuariosMostrar extends VentanaDashboard {
 
+  /**
+  * Constructor.
+  */
   public VentanaUsuariosMostrar() {
     super();
     ComponentesUsuariosMostrar.set(this);
   }
-
 }

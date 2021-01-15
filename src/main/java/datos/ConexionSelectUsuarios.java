@@ -1,16 +1,26 @@
 package datos;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
 import listas.ContainerListas;
 import modelos.Usuario;
 
-public class ConexionSelectUsuarios {
+/**
+* Class.
+*/
+public final class ConexionSelectUsuarios {
 
-  /**Construye SQL.*/
+  /**
+  * Constructor.
+  */
+  private ConexionSelectUsuarios() {
+  }
+
+  /**
+  * Method muestra todos los usuarios.
+  */
   public static void execute() {
     Connection connection = Conexion.open();
     Statement statement = null;
@@ -26,10 +36,10 @@ public class ConexionSelectUsuarios {
         usuario.dni = resultSet.getString("dni");
         usuario.username = resultSet.getString("username");
         usuario.contrasena = resultSet.getString("password");
-        usuario.nombres = resultSet.getString("name"); 
+        usuario.nombres = resultSet.getString("name");
         usuario.apellidos = resultSet.getString("last_name");
-        usuario.fechaNacimiento = resultSet.getString("birth_date"); 
-        usuario.email = resultSet.getString("email"); 
+        usuario.fechaNacimiento = resultSet.getString("birth_date");
+        usuario.email = resultSet.getString("email");
         usuario.tipo = resultSet.getString("type");
         ContainerListas.getInstance().listaUsuarios.add(usuario);
       }
@@ -39,7 +49,6 @@ public class ConexionSelectUsuarios {
       System.out.println("Operation done successfully");
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
-      //System.exit(0);
     }
   }
 }

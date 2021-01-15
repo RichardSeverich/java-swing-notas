@@ -2,8 +2,6 @@ package vistas.componentes;
 
 import datos.ConexionSelectUsuarios;
 import java.awt.BorderLayout;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -11,31 +9,37 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumnModel;
 import listas.ContainerListas;
 import modelos.Usuario;
-import utiles.Render;
+import vistas.utiles.Render;
 import vistas.eventos.EventosUsuariosMostrar;
 import vistas.ventanas.VentanaUsuariosMostrar;
 
-public class ComponentesUsuariosMostrar {
-
+/**
+* Class.
+*/
+public final class ComponentesUsuariosMostrar {
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
-  public static String[] columnHeaders = new String[] {"ID", "DNI", "USERNAME", "CONTRASENA", 
+  public static String[] columnHeaders = new String[] {"ID", "DNI", "USERNAME", "CONTRASENA",
     "NOMBRES", "APELLIDOS", "FECHA NACIMIENTO", "EMAIL", "TIPO", "EDITAR", "ELIMINAR"
   };
 
-  private ComponentesUsuariosMostrar(){
+  /**
+  * Constructor.
+  */
+  private ComponentesUsuariosMostrar() {
   }
 
-  /** Set Componentes.*/
+  /**
+   * @param ventana ventana.
+  */
   public static void set(VentanaUsuariosMostrar ventana) {
     JPanel panel = new JPanel();
-    panel.setBounds(40, 20, 800, 630);
+    panel.setBounds(0, 0, 890, 660);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
-    Object [][] datos = { {null, null, null, null, null, null, null, null, null, null, null} };
+    Object[][] datos = {{null, null, null, null, null, null, null, null, null, null, null}};
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -47,7 +51,6 @@ public class ComponentesUsuariosMostrar {
     table.addMouseListener(eventosUsuariosMostrar);
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
-    //table.setEnabled(false);
     JScrollPane scrollPane = new JScrollPane(table,
         JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
         JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
@@ -59,15 +62,19 @@ public class ComponentesUsuariosMostrar {
     panel.setBorder(border);
   }
 
-  /** Actualiza tabla.*/
+  /**
+   * Method actualiza tabla.
+  */
   public static void actualizarTabla() {
     Object[][] datos = construtirDatos();
     defaultTableModel.setDataVector(datos, columnHeaders);
     setPreferredWidth();
   }
 
+  /**
+   * Method set columnas.
+  */
   private static void setPreferredWidth() {
-    // Set columns width
     table.getColumnModel().getColumn(0).setPreferredWidth(50);
     table.getColumnModel().getColumn(1).setPreferredWidth(70);
     table.getColumnModel().getColumn(2).setPreferredWidth(90);
@@ -81,6 +88,9 @@ public class ComponentesUsuariosMostrar {
     table.getColumnModel().getColumn(10).setPreferredWidth(90);
   }
 
+  /**
+   * @return datos.
+  */
   private static Object[][] construtirDatos() {
     ConexionSelectUsuarios.execute();
     int size = ContainerListas.getInstance().listaUsuarios.size();

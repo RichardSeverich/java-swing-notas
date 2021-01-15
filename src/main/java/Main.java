@@ -1,8 +1,20 @@
 import datos.ReadConfigProperties;
 import vistas.ventanas.VentanaContainer;
 
-public class Main {
+/**
+* Class.
+*/
+public final class Main {
 
+  /**
+  * Constructor.
+  */
+  private Main() {
+  }
+
+  /**
+  * @param args args.
+  */
   public static void main(String[] args) {
     ReadConfigProperties.leer();
     VentanaContainer
@@ -11,5 +23,4 @@ public class Main {
       .frame
       .setVisible(true);
   }
-
 }

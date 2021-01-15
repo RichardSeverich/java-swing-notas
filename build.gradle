@@ -47,5 +47,5 @@ jar {
 
 checkstyle {
     toolVersion = '7.7'
-    configFile = file("${rootProject.rootDir}/checkstyle/google_checks.xml")
+    configFile = file("${rootProject.rootDir}/checkstyle/checkstyle-checker.xml")
 }

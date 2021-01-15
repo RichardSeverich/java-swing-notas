@@ -3,9 +3,11 @@ package datos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-// https://www.tutorialspoint.com/postgresql/postgresql_java.htm
-public class Conexion {
-
+/**
+* https://www.tutorialspoint.com/postgresql/postgresql_java.htm
+* Class.
+*/
+public final class Conexion {
   private static Conexion conexion;
   private Connection connection;
   private String driverPackage;
@@ -16,6 +18,9 @@ public class Conexion {
   private String dbUser;
   private String dbPassword;
 
+  /**
+  * Method.
+  */
   private Conexion() {
     this.connection = null;
     this.driverPackage = "org.postgresql.Driver";
@@ -27,12 +32,15 @@ public class Conexion {
     this.dbPassword = ReadConfigProperties.dbPassword;
   }
 
+  /**
+  * Method.
+  */
   private void openConnection() {
     try {
       // example: jdbc:postgresql://192.168.0.100:5432/dbnotas
       String cadenaConexion = this.driver + "://" + this.host + ":" + this.port + "/" + this.dbName;
       Class.forName(driverPackage);
-      this.connection = DriverManager.getConnection(cadenaConexion,this.dbUser, this.dbPassword);
+      this.connection = DriverManager.getConnection(cadenaConexion, this.dbUser, this.dbPassword);
       System.out.println("Opened database successfully");
     } catch (Exception e) {
       e.printStackTrace();
@@ -42,6 +50,9 @@ public class Conexion {
 
   }
 
+  /**
+  * @return conexion.
+  */
   private static Conexion getInstance() {
     if (conexion == null) {
       conexion = new Conexion();
@@ -49,10 +60,11 @@ public class Conexion {
     return conexion;
   }
 
-  /**Abre conexion.*/
+  /**
+  * @return instance connection.
+  */
   public static Connection open() {
     getInstance().openConnection();
     return getInstance().connection;
   }
-
 }

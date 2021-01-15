@@ -1,13 +1,19 @@
-# Java notas
+# java-swing-notas
 
-Notas.
+This project using Gradle.
 
-## Prerequisites 🚀
+## Prerequisites 🔨
 
 1. Install Windows 10
-2. Install Java version 1.8.0_201
-3. Install postgres:10
-4. Optional docker:
+2. Install gradle-6.4.1
+3. Install Java version 1.8.0_201
+4. Install postgres:10
+5. Optional install docker
+6. Optional Clients: HeidiSQ, Dbeaver
+
+Note: resolution recomented: 1920x1080
+
+### Optional install postgres db in docker
 
 ```
 docker pull postgres:10
@@ -16,10 +22,6 @@ default user: postgres
 default dbname: postgres
 password: secret123
 ```
-
-5. Optional Clients: HeidiSQ, Dbeaver
-
-Note: resolution recomented: 1920x1080
 
 ## Deploy / Installation 🔧
 
@@ -34,7 +36,53 @@ Note: resolution recomented: 1920x1080
 3. Config config.properties file.
 4. java -jar build/libs/java-swing-notas.jar
 
-## Screens
+## Diagrams
+
+### Class Diagram
+
+<p align="center">
+  <img src="documentation/class-diagram.jpg">
+</p>
+
+### Use Case Diagram
+
+<p align="center">
+  <img src="documentation/use-case-diagram.jpg">
+</p>
+
+### Use Case Diagram Detailed
+
+<p align="center">
+  <img src="documentation/use-case-diagram-detailed.jpg">
+</p>
+
+### Entity Relation Data Base
+
+<p align="center">
+  <img src="documentation/diagram-database-dbeaver.jpg">
+</p>
+
+### Entity Relation Chen Notation Diagram
+
+<p align="center">
+  <img src="documentation/entity-relation-notation-chen.jpg">
+</p>
+
+### Entity Relation Crows Foot Diagram
+
+<p align="center">
+  <img src="documentation/entity-relation-crows-foot.jpg">
+</p>
+
+## UI Screens
+
+### Login
+
+<p align="center">
+  <img src="documentation/ui-login.jpg">
+</p>
+
+### Users
 
 <p align="center">
   <img src="documentation/ui-users-modal.jpg">
@@ -42,6 +90,108 @@ Note: resolution recomented: 1920x1080
 
 <p align="center">
   <img src="documentation/ui-users-table.jpg">
+</p>
+
+### Students
+
+<p align="center">
+  <img src="documentation/ui-students-modal.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-students-table.jpg">
+</p>
+
+### Courses
+
+<p align="center">
+  <img src="documentation/ui-courses-modal.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-courses-table.jpg">
+</p>
+
+### Subjects
+
+<p align="center">
+  <img src="documentation/ui-subjects-modal.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-subjects-table.jpg">
+</p>
+
+### Study Plan
+
+<p align="center">
+  <img src="documentation/ui-plan-registrar-curso-modal.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-plan-registrar-materia.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-plan-mostrar-materia.jpg">
+</p>
+
+### Inscriptions
+
+<p align="center">
+  <img src="documentation/ui-inscripciones-registrar-curso.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-inscripciones-registrar-estudiante.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-inscripciones-mostrar-estudiante.jpg">
+</p>
+
+### Notes
+
+<p align="center">
+  <img src="documentation/ui-notas-registrar-mostrar-curso.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-notas-registrar-mostrar-estudiante.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-notas-registrar-mostrar-materia.jpg">
+</p>
+
+### Reports
+
+### Reports By Course
+
+<p align="center">
+  <img src="documentation/ui-reporte-notas-curso-curso.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-reporte-notas-curso-estudiante.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-reporte-notas-curso-materia.jpg">
+</p>
+
+### Reports By Student
+
+<p align="center">
+  <img src="documentation/ui-reporte-notas-estudiante-estudiante.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-reporte-notas-estudiante-curso.jpg">
+</p>
+
+<p align="center">
+  <img src="documentation/ui-reporte-notas-estudiante-materia.jpg">
 </p>
 
 ## Contributing 🖇️

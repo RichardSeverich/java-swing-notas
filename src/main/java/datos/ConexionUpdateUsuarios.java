@@ -1,15 +1,21 @@
 package datos;
 
-import java.lang.StringBuilder;
 import modelos.Usuario;
 
-public class ConexionUpdateUsuarios {
+/**
+* Class.
+*/
+public final class ConexionUpdateUsuarios {
 
+  /**
+  * Constructor.
+  */
   private ConexionUpdateUsuarios() {
-
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param usuario usuario.
+  */
   public static void execute(Usuario usuario) {
     StringBuilder sql = new StringBuilder();
     sql.append("UPDATE users SET");
@@ -24,9 +30,8 @@ public class ConexionUpdateUsuarios {
     sql.append("type = '" + usuario.tipo + "'");
     sql.append(" ");
     sql.append("WHERE ");
-    sql.append("id=" + usuario.id + ";");
+    sql.append("id =" + usuario.id + ";");
     System.out.println(sql.toString());
     ConexionInsert.execute(sql.toString());
   }
-
 }

@@ -1,15 +1,21 @@
 package datos;
 
-import java.lang.StringBuilder;
 import modelos.Usuario;
 
-public class ConexionInsertUsuarios {
+/**
+* Class.
+*/
+public final class ConexionInsertUsuarios {
 
+  /**
+  * Constructor.
+  */
   private ConexionInsertUsuarios() {
-
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param usuario usuario.
+  */
   public static void execute(Usuario usuario) {
     StringBuilder sql = new StringBuilder();
     sql.append("INSERT INTO users");
@@ -30,5 +36,4 @@ public class ConexionInsertUsuarios {
     System.out.println(sql.toString());
     ConexionInsert.execute(sql.toString());
   }
-
 }

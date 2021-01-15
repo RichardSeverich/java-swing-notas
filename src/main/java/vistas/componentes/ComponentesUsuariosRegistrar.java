@@ -17,8 +17,10 @@ import vistas.eventos.EventosUsuariosRegistrar;
 import vistas.utiles.DateLabelFormatter;
 import vistas.ventanas.VentanaUsuariosRegistrar;
 
-public class ComponentesUsuariosRegistrar {
-  
+/**
+* Class.
+*/
+public final class ComponentesUsuariosRegistrar {
   public static JTextField fieldDni;
   public static JTextField fieldUsername;
   public static JPasswordField fieldContrasena;
@@ -28,15 +30,20 @@ public class ComponentesUsuariosRegistrar {
   public static JTextField fieldEmail;
   public static JComboBox tipoUsuarioCombox;
 
-  private ComponentesUsuariosRegistrar(){
-
+  /**
+  * Constructor.
+  */
+  private ComponentesUsuariosRegistrar() {
   }
 
-  /** Set Componentes.*/
+  /**
+   * @param ventana ventana.
+  */
+  @SuppressWarnings("unchecked")
   public static void set(VentanaUsuariosRegistrar ventana) {
     JPanel panel = new JPanel();
     ventana.frame.add(panel);
-    panel.setBounds(200, 20, 500, 630);
+    panel.setBounds(200, 20, 500, 610);
     panel.setLayout(null);
     // Titulo
     JLabel labelTitulo = new JLabel("Registrar Usuarios");
@@ -101,7 +108,7 @@ public class ComponentesUsuariosRegistrar {
     panel.add(fieldEmail);
     // Tipo Usuario
     JLabel labelTipoUsuario = new JLabel("Tipo Usuario");
-    String[] comboxItems = { "Administrador", "Profesor"};
+    String[] comboxItems = {"Administrador", "Profesor"};
     tipoUsuarioCombox = new JComboBox(comboxItems);
     labelTipoUsuario.setBounds(50, 450, 120, 25);
     tipoUsuarioCombox.setBounds(200, 450, 200, 25);
@@ -119,9 +126,10 @@ public class ComponentesUsuariosRegistrar {
     panel.setBorder(border);
   }
 
-  /** Limpia comoponentes */
+  /**
+   * Method Limpia Componentes.
+  */
   public static void limpiar() {
-    // Set valores a los componenentes del modal.
     ComponentesUsuariosRegistrar.fieldDni.setText("");
     ComponentesUsuariosRegistrar.fieldUsername.setText("");
     ComponentesUsuariosRegistrar.fieldContrasena.setText("");

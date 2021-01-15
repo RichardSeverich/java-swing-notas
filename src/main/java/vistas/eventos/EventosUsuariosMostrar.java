@@ -4,41 +4,50 @@ import datos.ConexionDelete;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JButton;
-import static javax.swing.JOptionPane.showMessageDialog;
 import vistas.componentes.ComponentesUsuariosMostrar;
 import vistas.componentes.ComponentesUsuariosRegistrar;
-import vistas.validadores.ValidadorUsuarios;
 import vistas.ventanas.VentanaContainer;
-
 import javax.swing.JOptionPane;
 
+/**
+* Class.
+*/
 public class EventosUsuariosMostrar extends MouseAdapter {
 
+  /**
+  * Constructor.
+  */
   public EventosUsuariosMostrar() {
-
   }
 
+  /**
+  * {@inheritDoc}
+  */
+  @Override
   public void mouseClicked(MouseEvent mouseEvent) {
     int column = ComponentesUsuariosMostrar
-      .table
-      .getColumnModel()
-      .getColumnIndexAtX(mouseEvent.getX());
+        .table
+        .getColumnModel()
+        .getColumnIndexAtX(mouseEvent.getX());
     int row = mouseEvent
-      .getY()/ComponentesUsuariosMostrar.table.getRowHeight();
+        .getY() / ComponentesUsuariosMostrar.table.getRowHeight();
     Object value = ComponentesUsuariosMostrar.table.getValueAt(row, column);
-    if(value instanceof JButton){
+    if (value instanceof JButton) {
       //((JButton)value).doClick();
       JButton button = (JButton) value;
       String nombreBoton = button.getName();
-      if(nombreBoton == "Editar"){
+      if (nombreBoton == "Editar") {
         this.editar(row);
-      } else if(nombreBoton == "Eliminar") {
+      } else if (nombreBoton == "Eliminar") {
         this.eliminar(row);
       }
     }
   }
 
-  private void editar(int row){
+  /**
+   * @param row row.
+  */
+  private void editar(int row) {
     // Obtener valores de la tabla
     int id = (int) ComponentesUsuariosMostrar.table.getValueAt(row, 0);
     String dni = (String) ComponentesUsuariosMostrar.table.getValueAt(row, 1);
@@ -65,13 +74,15 @@ public class EventosUsuariosMostrar extends MouseAdapter {
     VentanaContainer.getInstancia().ventanaUsuariosRegistrar.frame.setVisible(true);
   }
 
+  /**
+   * @param row row.
+  */
   private void eliminar(int row) {
     int id = (int) ComponentesUsuariosMostrar.table.getValueAt(row, 0);
-    // Si = 0, No = 1
     String mensaje = "Realmente desea realizar esta accion";
-    int result = JOptionPane.showConfirmDialog(null, mensaje, "Confirmacion",
-       JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-    if(result == 0) {
+    int result = JOptionPane.showConfirmDialog(null, mensaje, "Eliminar",
+        JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+    if (result == 0) {
       ConexionDelete.execute("users", id);
       ComponentesUsuariosMostrar.actualizarTabla();
     }
