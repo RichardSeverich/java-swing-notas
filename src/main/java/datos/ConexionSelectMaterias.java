@@ -7,13 +7,20 @@ import java.sql.Statement;
 import listas.ContainerListas;
 import modelos.Materia;
 
-public class ConexionSelectMaterias {
+/**
+* Class.
+*/
+public final class ConexionSelectMaterias {
 
-  public ConexionSelectMaterias() {
-
+  /**
+  * Constructor.
+  */
+  private ConexionSelectMaterias() {
   }
 
-  /**Construye SQL.*/
+  /**
+  * Method muestra todos las materias.
+  */
   public static void execute() {
     Connection connection = Conexion.open();
     Statement statement = null;

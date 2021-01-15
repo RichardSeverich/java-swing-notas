@@ -1,15 +1,21 @@
 package datos;
 
-import java.lang.StringBuilder;
 import modelos.Materia;
 
-public class ConexionUpdateMaterias {
+/**
+* Class.
+*/
+public final class ConexionUpdateMaterias {
 
+  /**
+  * Constructor.
+  */
   private ConexionUpdateMaterias() {
-
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param materia materia.
+  */
   public static void execute(Materia materia) {
     StringBuilder sql = new StringBuilder();
     sql.append("UPDATE subjects SET");

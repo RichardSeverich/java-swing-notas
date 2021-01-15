@@ -7,27 +7,33 @@ import javax.swing.JTable;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableCellRenderer;
 
-public class Render extends DefaultTableCellRenderer{
+/**
+* Class.
+*/
+public class Render extends DefaultTableCellRenderer {
 
+  /**
+  * {@inheritDoc}
+  */
   @Override
-  public Component getTableCellRendererComponent(JTable table, Object value, 
-      boolean isSelected, boolean hasFocus, int row, int column) {
-    if(value instanceof JButton){
-      JButton btn = (JButton)value;
-      if(isSelected){
+  public Component getTableCellRendererComponent(JTable table, Object value,
+        boolean isSelected, boolean hasFocus, int row, int column) {
+    if (value instanceof JButton) {
+      JButton btn = (JButton) value;
+      if (isSelected) {
         btn.setForeground(table.getSelectionForeground());
         btn.setBackground(table.getSelectionBackground());
-      }else{
+      } else {
         btn.setForeground(table.getForeground());
         btn.setBackground(UIManager.getColor("Button.background"));
       }
       return btn;
     }
-    if(value instanceof JCheckBox){
-      JCheckBox ch = (JCheckBox)value;
+    if (value instanceof JCheckBox) {
+      JCheckBox ch = (JCheckBox) value;
       return ch;
     }
-    return super.getTableCellRendererComponent(table, value, isSelected, 
+    return super.getTableCellRendererComponent(table, value, isSelected,
       //To change body of generated methods, choose Tools | Templates
       hasFocus, row, column);
   }

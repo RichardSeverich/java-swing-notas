@@ -1,5 +1,8 @@
 package modelos;
 
+/**
+* Class.
+*/
 public class Usuario {
   public Integer id;
   public String dni;
@@ -11,7 +14,9 @@ public class Usuario {
   public String email;
   public String tipo;
 
+  /**
+  * Constructor.
+  */
   public Usuario() {
-
   }
 }

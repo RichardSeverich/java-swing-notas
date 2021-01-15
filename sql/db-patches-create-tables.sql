@@ -47,3 +47,22 @@ CREATE TABLE courses_subjects(
    UNIQUE (id_subject, id_course),
    PRIMARY KEY (id)
 );
+
+--TABLE COURSES STUDENTS
+CREATE TABLE courses_students(
+   id serial,
+   id_course int REFERENCES courses(id),
+   id_student int REFERENCES students(id),
+   UNIQUE (id_student, id_course),
+   PRIMARY KEY (id)
+);
+
+--TABLE SUBJECTS STUDENTS
+CREATE TABLE subjects_students(
+   id serial,
+   id_subject int REFERENCES subjects(id),
+   id_student int REFERENCES students(id),
+   score TEXT,
+   UNIQUE (id_subject, id_student),
+   PRIMARY KEY (id)
+);

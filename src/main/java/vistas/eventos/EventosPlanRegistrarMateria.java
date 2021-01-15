@@ -9,40 +9,56 @@ import datos.ConexionInsertCursosSubjects;
 import modelos.Curso;
 import modelos.Materia;
 import vistas.componentes.ComponentesPlanRegistrarMateria;
-//import vistas.ventanas.VentanaContainer;
 
+/**
+* Class.
+*/
 public class EventosPlanRegistrarMateria extends MouseAdapter {
   protected static Curso curso;
-  
+
+  /**
+  * Constructor.
+  */
   public EventosPlanRegistrarMateria() {
   }
 
+  /**
+  * {@inheritDoc}
+  */
+  @Override
   public void mouseClicked(MouseEvent mouseEvent) {
     int column = ComponentesPlanRegistrarMateria
-      .table
-      .getColumnModel()
-      .getColumnIndexAtX(mouseEvent.getX());
+        .table
+        .getColumnModel()
+        .getColumnIndexAtX(mouseEvent.getX());
     int row = mouseEvent
-      .getY()/ComponentesPlanRegistrarMateria.table.getRowHeight();
+        .getY() / ComponentesPlanRegistrarMateria.table.getRowHeight();
     Object value = ComponentesPlanRegistrarMateria.table.getValueAt(row, column);
-    if(value instanceof JButton) {
+    if (value instanceof JButton) {
       JButton button = (JButton) value;
       String nombreBoton = button.getName();
-      if(nombreBoton.equals("agregar")){
+      if (nombreBoton.equals("agregar")) {
         this.agregar(row);
       }
     }
   }
 
+  /**
+   * @param curso curso.
+  */
   public static void setCurso(Curso curso) {
     EventosPlanRegistrarMateria.curso = curso;
   }
 
-  private void agregar(int row){
+  /**
+   * @param row row.
+  */
+  private void agregar(int row) {
     Materia materia = new Materia();
     materia.id = (int) ComponentesPlanRegistrarMateria.table.getValueAt(row, 0);
     materia.nombre = (String) ComponentesPlanRegistrarMateria.table.getValueAt(row, 1);
     ConexionInsertCursosSubjects.execute(curso, materia);
-    showMessageDialog(null, "agrego la materia " + materia.nombre + "exitosamente");
+    ComponentesPlanRegistrarMateria.actualizarTabla();
+    showMessageDialog(null, "agrego la materia " + materia.nombre + " exitosamente");
   }
 }

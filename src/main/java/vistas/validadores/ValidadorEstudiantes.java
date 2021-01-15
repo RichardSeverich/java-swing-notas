@@ -6,13 +6,21 @@ import java.util.regex.Matcher;
 
 import vistas.componentes.ComponentesEstudiantesRegistrar;
 
-public class ValidadorEstudiantes {
+/**
+* Class.
+*/
+public final class ValidadorEstudiantes {
 
-  private ValidadorEstudiantes(){
-
+  /**
+  * Constructor.
+  */
+  private ValidadorEstudiantes() {
   }
-  
-  public static boolean validar(){
+
+  /**
+  * @return boolean.
+  */
+  public static boolean validar() {
     String dni = ComponentesEstudiantesRegistrar.fieldDni.getText();
     String nombres = ComponentesEstudiantesRegistrar.fieldNombres.getText();
     String apellidos = ComponentesEstudiantesRegistrar.fieldApellidos.getText();
@@ -31,7 +39,7 @@ public class ValidadorEstudiantes {
     } else if (nombres.length() < 3 && nombres.length() > 20) {
       showMessageDialog(null, "Error: Nombres minimo 3 caracteres y maximo 20");
       return false;
-    } else if (apellidos.length() < 3&& apellidos.length() > 20) {
+    } else if (apellidos.length() < 3 && apellidos.length() > 20) {
       showMessageDialog(null, "Error: Apellidos minimo 3 caracteres y maximo 20");
       return false;
     } else if (fechaNacimiento.length() == 0) {

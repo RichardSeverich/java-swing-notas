@@ -16,22 +16,29 @@ import vistas.utiles.Render;
 import vistas.eventos.EventosMateriasMostrar;
 import vistas.ventanas.VentanaMateriasMostrar;
 
-public class ComponentesMateriasMostrar {
-
+/**
+* Class.
+*/
+public final class ComponentesMateriasMostrar {
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
   public static String[] columnHeaders = new String[] {"ID", "NOMBRE", "EDITAR", "ELIMINAR"};
 
-  private ComponentesMateriasMostrar(){
+  /**
+  * Constructor.
+  */
+  private ComponentesMateriasMostrar() {
   }
 
-  /** Set Componentes.*/
+  /**
+   * @param ventana ventana.
+  */
   public static void set(VentanaMateriasMostrar ventana) {
     JPanel panel = new JPanel();
-    panel.setBounds(40, 20, 800, 630);
+    panel.setBounds(0, 0, 890, 660);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
-    Object [][] datos = { {null, null, null, null} };
+    Object[][] datos = {{null, null, null, null}};
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -43,10 +50,9 @@ public class ComponentesMateriasMostrar {
     table.addMouseListener(eventosMateriasMostrar);
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
-
     JScrollPane scrollPane = new JScrollPane(table,
-      JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-      JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     panel.add(scrollPane);
     // Titulo y Borde
@@ -55,21 +61,28 @@ public class ComponentesMateriasMostrar {
     panel.setBorder(border);
   }
 
-  /** Actualiza tabla.*/
+  /**
+   * Method actualiza tabla.
+  */
   public static void actualizarTabla() {
     Object[][] datos = construtirDatos();
     defaultTableModel.setDataVector(datos, columnHeaders);
     setPreferredWidth();
   }
 
+  /**
+   * Method set columnas.
+  */
   private static void setPreferredWidth() {
-    // Set columns width
-    table.getColumnModel().getColumn(0).setPreferredWidth(50);
-    table.getColumnModel().getColumn(1).setPreferredWidth(120);
-    table.getColumnModel().getColumn(2).setPreferredWidth(90);
-    table.getColumnModel().getColumn(3).setPreferredWidth(90);
+    table.getColumnModel().getColumn(0).setPreferredWidth(70);
+    table.getColumnModel().getColumn(1).setPreferredWidth(565);
+    table.getColumnModel().getColumn(2).setPreferredWidth(120);
+    table.getColumnModel().getColumn(3).setPreferredWidth(120);
   }
 
+  /**
+   * @return datos.
+  */
   private static Object[][] construtirDatos() {
     ConexionSelectMaterias.execute();
     int size = ContainerListas.getInstance().listaMaterias.size();

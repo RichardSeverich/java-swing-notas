@@ -1,16 +1,21 @@
 package datos;
 
-import java.lang.StringBuilder;
-
 import modelos.Estudiante;
 
-public class ConexionInsertEstudiantes {
+/**
+* Class.
+*/
+public final class ConexionInsertEstudiantes {
 
+  /**
+  * Constructor.
+  */
   private ConexionInsertEstudiantes() {
-
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param estudiante estudiante.
+  */
   public static void execute(Estudiante estudiante) {
     StringBuilder sql = new StringBuilder();
     sql.append("INSERT INTO students");

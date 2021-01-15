@@ -15,22 +15,29 @@ import vistas.utiles.Render;
 import vistas.eventos.EventosPlanRegistrarCurso;
 import vistas.ventanas.VentanaPlanRegistrarCurso;
 
-public class ComponentesPlanRegistrarCurso {
-
+/**
+* Class.
+*/
+public final class ComponentesPlanRegistrarCurso {
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
   public static String[] columnHeaders = new String[] {"ID", "NOMBRE", "SELECCIONAR"};
 
-  private ComponentesPlanRegistrarCurso(){
+  /**
+  * Constructor.
+  */
+  private ComponentesPlanRegistrarCurso() {
   }
 
-  /** Set Componentes.*/
+  /**
+   * @param ventana ventana.
+  */
   public static void set(VentanaPlanRegistrarCurso ventana) {
     JPanel panel = new JPanel();
-    panel.setBounds(40, 20, 800, 630);
+    panel.setBounds(0, 0, 890, 660);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
-    Object [][] datos = { {null, null, null} };
+    Object[][] datos = {{null, null, null}};
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -53,20 +60,27 @@ public class ComponentesPlanRegistrarCurso {
     panel.setBorder(border);
   }
 
-  /** Actualiza tabla.*/
+  /**
+   * Method actualiza tabla.
+  */
   public static void actualizarTabla() {
     Object[][] datos = construtirDatos();
     defaultTableModel.setDataVector(datos, columnHeaders);
     setPreferredWidth();
   }
 
+  /**
+   * Method set columnas.
+  */
   private static void setPreferredWidth() {
-    // Set columns width
-    table.getColumnModel().getColumn(0).setPreferredWidth(50);
-    table.getColumnModel().getColumn(1).setPreferredWidth(120);
-    table.getColumnModel().getColumn(2).setPreferredWidth(110);
+    table.getColumnModel().getColumn(0).setPreferredWidth(80);
+    table.getColumnModel().getColumn(1).setPreferredWidth(675);
+    table.getColumnModel().getColumn(2).setPreferredWidth(120);
   }
 
+  /**
+   * @return datos.
+  */
   private static Object[][] construtirDatos() {
     ConexionSelectCursos.execute();
     int size = ContainerListas.getInstance().listaCursos.size();

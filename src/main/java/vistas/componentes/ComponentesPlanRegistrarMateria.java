@@ -1,6 +1,6 @@
 package vistas.componentes;
 
-import datos.ConexionSelectMaterias;
+import datos.ConexionSelectMateriasNoEnCurso;
 import java.awt.BorderLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -11,26 +11,36 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import listas.ContainerListas;
 import modelos.Materia;
+import modelos.Curso;
 import vistas.utiles.Render;
-import vistas.eventos.EventosPlanRegistrarCurso;
 import vistas.eventos.EventosPlanRegistrarMateria;
 import vistas.ventanas.VentanaPlanRegistrarMateria;
 
-public class ComponentesPlanRegistrarMateria {
+/**
+* Class.
+*/
+public final class ComponentesPlanRegistrarMateria {
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
   public static String[] columnHeaders = new String[] {"ID", "NOMBRE", "AGREGAR"};
+  public static Curso course;
+  public static JPanel panel;
 
+  /**
+  * Constructor.
+  */
   private ComponentesPlanRegistrarMateria() {
   }
 
-  /** Set Componentes.*/
+  /**
+   * @param ventana ventana.
+  */
   public static void set(VentanaPlanRegistrarMateria ventana) {
-    JPanel panel = new JPanel();
-    panel.setBounds(40, 20, 800, 630);
+    panel = new JPanel();
+    panel.setBounds(0, 0, 890, 660);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
-    Object [][] datos = { {null, null, null} };
+    Object[][] datos = {{null, null, null}};
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -43,32 +53,38 @@ public class ComponentesPlanRegistrarMateria {
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
     JScrollPane scrollPane = new JScrollPane(table,
-      JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-      JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+        JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     panel.add(scrollPane);
-    // Titulo y Borde
-    String title = "Agregar materias al curso";
-    Border border = BorderFactory.createTitledBorder(title);
-    panel.setBorder(border);
   }
 
-  /** Actualiza tabla.*/
+  /**
+   * Method actualiza tabla.
+  */
   public static void actualizarTabla() {
+    String title = "Agregar materias al curso " + course.nombre;
+    Border border = BorderFactory.createTitledBorder(title);
+    panel.setBorder(border);
     Object[][] datos = construtirDatos();
     defaultTableModel.setDataVector(datos, columnHeaders);
     setPreferredWidth();
   }
 
+  /**
+   * Method set columnas.
+  */
   private static void setPreferredWidth() {
-    // Set columns width
-    table.getColumnModel().getColumn(0).setPreferredWidth(50);
-    table.getColumnModel().getColumn(1).setPreferredWidth(120);
-    table.getColumnModel().getColumn(2).setPreferredWidth(90);
+    table.getColumnModel().getColumn(0).setPreferredWidth(80);
+    table.getColumnModel().getColumn(1).setPreferredWidth(675);
+    table.getColumnModel().getColumn(2).setPreferredWidth(120);
   }
 
+  /**
+   * @return datos.
+  */
   private static Object[][] construtirDatos() {
-    ConexionSelectMaterias.execute();
+    ConexionSelectMateriasNoEnCurso.execute(course);
     int size = ContainerListas.getInstance().listaMaterias.size();
     Object[][] datos = new Object[size][3];
     int row = 0;

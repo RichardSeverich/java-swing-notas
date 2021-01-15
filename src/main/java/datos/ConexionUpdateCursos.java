@@ -1,15 +1,21 @@
 package datos;
 
-import java.lang.StringBuilder;
 import modelos.Curso;
 
-public class ConexionUpdateCursos {
+/**
+* Class.
+*/
+public final class ConexionUpdateCursos {
 
+  /**
+  * Constructor.
+  */
   private ConexionUpdateCursos() {
-
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param curso curso.
+  */
   public static void execute(Curso curso) {
     StringBuilder sql = new StringBuilder();
     sql.append("UPDATE courses SET");

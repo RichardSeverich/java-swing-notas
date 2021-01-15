@@ -7,13 +7,21 @@ import java.sql.Statement;
 import listas.ContainerListas;
 import modelos.Estudiante;
 
-public class ConexionSelectEstudiantes {
+/**
+* Class.
+*/
+public final class ConexionSelectEstudiantes {
 
-  public ConexionSelectEstudiantes() {
+  /**
+  * Constructor.
+  */
+  private ConexionSelectEstudiantes() {
 
   }
 
-  /**Construye SQL.*/
+  /**
+  * Method muestra todos los estudiantes.
+  */
   public static void execute() {
     Connection connection = Conexion.open();
     Statement statement = null;
@@ -27,12 +35,12 @@ public class ConexionSelectEstudiantes {
         Estudiante estudiante = new Estudiante();
         estudiante.id = resultSet.getInt("id");
         estudiante.dni = resultSet.getString("dni");
-        estudiante.nombres = resultSet.getString("name"); 
+        estudiante.nombres = resultSet.getString("name");
         estudiante.apellidos = resultSet.getString("last_name");
         estudiante.fechaNacimiento = resultSet.getString("birth_date");
         estudiante.telefono = resultSet.getString("telephone");
         estudiante.direccion = resultSet.getString("adress");
-        estudiante.email = resultSet.getString("email"); 
+        estudiante.email = resultSet.getString("email");
         ContainerListas.getInstance().listaEstudiantes.add(estudiante);
       }
       resultSet.close();
@@ -41,7 +49,6 @@ public class ConexionSelectEstudiantes {
       System.out.println("Operation done successfully");
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
-      //System.exit(0);
     }
   }
 }

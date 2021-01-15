@@ -12,22 +12,31 @@ import modelos.Materia;
 import vistas.componentes.ComponentesMateriasRegistrar;
 import vistas.validadores.ValidadorMaterias;
 
-
+/**
+* Class.
+*/
 public class EventosMateriasRegistrar implements ActionListener {
   public static boolean editar;
   public static int id;
 
+  /**
+  * Constructor.
+  */
   public EventosMateriasRegistrar() {
     this.editar = false;
     this.id = 0;
   }
 
+  /**
+  * {@inheritDoc}
+  */
+  @Override
   public void actionPerformed(ActionEvent actionEvent) {
     boolean esValido = ValidadorMaterias.validar();
-    if(esValido) {
+    if (esValido) {
       Materia materia = new Materia();
       materia.nombre = ComponentesMateriasRegistrar.fieldNombre.getText();
-      if(this.editar) {
+      if (this.editar) {
         this.modificar(materia);
       } else {
         this.crear(materia);
@@ -35,12 +44,18 @@ public class EventosMateriasRegistrar implements ActionListener {
     }
   }
 
-  private void crear(Materia materia){
+  /**
+   * @param materia materia.
+  */
+  private void crear(Materia materia) {
     ConexionInsertMaterias.execute(materia);
     showMessageDialog(null, "Registrado exitosamente");
   }
 
-  private void modificar(Materia materia){
+  /**
+   * @param materia materia.
+  */
+  private void modificar(Materia materia) {
     materia.id = this.id;
     ConexionUpdateMaterias.execute(materia);
     showMessageDialog(null, "Editado exitosamente");

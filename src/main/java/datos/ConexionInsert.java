@@ -3,9 +3,20 @@ package datos;
 import java.sql.Connection;
 import java.sql.Statement;
 
-public class ConexionInsert {
+/**
+* Class.
+*/
+public final class ConexionInsert {
 
-  /**Ejecuta Comando SQL.*/
+  /**
+  * Constructor.
+  */
+  private ConexionInsert() {
+  }
+
+  /**
+  * @param sql sql.
+  */
   public static void execute(String sql) {
     Statement statement = null;
     Connection connection = Conexion.open();
@@ -18,8 +29,7 @@ public class ConexionInsert {
       connection.close();
       System.out.println("Records created successfully");
     } catch (Exception e) {
-      System.err.println( e.getClass().getName() + ": " + e.getMessage() );
-      //System.exit(0);
+      System.err.println(e.getClass().getName() + ": " + e.getMessage());
     }
   }
 }

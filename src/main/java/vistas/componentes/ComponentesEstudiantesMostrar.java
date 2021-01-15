@@ -15,24 +15,31 @@ import vistas.utiles.Render;
 import vistas.eventos.EventosEstudiantesMostrar;
 import vistas.ventanas.VentanaEstudiantesMostrar;
 
-public class ComponentesEstudiantesMostrar {
-
+/**
+* Class.
+*/
+public final class ComponentesEstudiantesMostrar {
   public static DefaultTableModel defaultTableModel;
   public static JTable table;
-  public static String[] columnHeaders = new String[] {"ID", "DNI","NOMBRES", "APELLIDOS",
+  public static String[] columnHeaders = new String[] {"ID", "DNI", "NOMBRES", "APELLIDOS",
     "FECHA NACIMIENTO", "TELEPHONE", "ADRESS", "EMAIL", "EDITAR", "ELIMINAR"
   };
 
-  private ComponentesEstudiantesMostrar(){
+  /**
+  * Constructor.
+  */
+  private ComponentesEstudiantesMostrar() {
   }
 
-  /** Set Componentes.*/
+  /**
+   * @param ventana ventana.
+  */
   public static void set(VentanaEstudiantesMostrar ventana) {
     JPanel panel = new JPanel();
-    panel.setBounds(40, 20, 800, 630);
+    panel.setBounds(0, 0, 890, 660);
     ventana.frame.add(panel);
     panel.setLayout(new BorderLayout());
-    Object [][] datos = { {null, null, null, null, null, null, null, null, null, null} };
+    Object[][] datos = {{null, null, null, null, null, null, null, null, null, null}};
     defaultTableModel = new DefaultTableModel(datos, columnHeaders) {
       @Override
       public boolean isCellEditable(int row, int column) {
@@ -44,27 +51,29 @@ public class ComponentesEstudiantesMostrar {
     table.addMouseListener(eventosEstudiantesMostrar);
     table.setDefaultRenderer(Object.class, new Render());
     table.setModel(defaultTableModel);
-    //table.setEnabled(false);
     JScrollPane scrollPane = new JScrollPane(table,
         JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
         JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
     table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
     panel.add(scrollPane);
-    // Titulo y Borde
     String title = "Mostrar";
     Border border = BorderFactory.createTitledBorder(title);
     panel.setBorder(border);
   }
 
-  /** Actualiza tabla.*/
+  /**
+  * Method actualiza tabla.
+  */
   public static void actualizarTabla() {
     Object[][] datos = construtirDatos();
     defaultTableModel.setDataVector(datos, columnHeaders);
     setPreferredWidth();
   }
 
+  /**
+  * Method set columnas.
+  */
   private static void setPreferredWidth() {
-    // Set columns width
     table.getColumnModel().getColumn(0).setPreferredWidth(50);
     table.getColumnModel().getColumn(1).setPreferredWidth(70);
     table.getColumnModel().getColumn(2).setPreferredWidth(90);
@@ -77,6 +86,9 @@ public class ComponentesEstudiantesMostrar {
     table.getColumnModel().getColumn(9).setPreferredWidth(90);
   }
 
+  /**
+  * @return datos.
+  */
   private static Object[][] construtirDatos() {
     ConexionSelectEstudiantes.execute();
     int size = ContainerListas.getInstance().listaEstudiantes.size();

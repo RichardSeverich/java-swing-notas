@@ -12,22 +12,31 @@ import modelos.Curso;
 import vistas.componentes.ComponentesCursosRegistrar;
 import vistas.validadores.ValidadorCursos;
 
-
+/**
+* Class.
+*/
 public class EventosCursosRegistrar implements ActionListener {
   public static boolean editar;
   public static int id;
 
+  /**
+  * Constructor.
+  */
   public EventosCursosRegistrar() {
     this.editar = false;
     this.id = 0;
   }
 
+  /**
+  * {@inheritDoc}
+  */
+  @Override
   public void actionPerformed(ActionEvent actionEvent) {
     boolean esValido = ValidadorCursos.validar();
-    if(esValido) {
+    if (esValido) {
       Curso curso = new Curso();
       curso.nombre = ComponentesCursosRegistrar.fieldNombre.getText();
-      if(this.editar) {
+      if (this.editar) {
         this.modificar(curso);
       } else {
         this.crear(curso);
@@ -35,12 +44,18 @@ public class EventosCursosRegistrar implements ActionListener {
     }
   }
 
-  private void crear(Curso curso){
+  /**
+   * @param curso curso.
+  */
+  private void crear(Curso curso) {
     ConexionInsertCursos.execute(curso);
     showMessageDialog(null, "Registrado exitosamente");
   }
 
-  private void modificar(Curso curso){
+  /**
+   * @param curso curso.
+  */
+  private void modificar(Curso curso) {
     curso.id = this.id;
     ConexionUpdateCursos.execute(curso);
     showMessageDialog(null, "Editado exitosamente");

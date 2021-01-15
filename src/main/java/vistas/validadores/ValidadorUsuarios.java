@@ -6,13 +6,21 @@ import java.util.regex.Matcher;
 
 import vistas.componentes.ComponentesUsuariosRegistrar;
 
-public class ValidadorUsuarios {
+/**
+* Class.
+*/
+public final class ValidadorUsuarios {
 
-  private ValidadorUsuarios(){
-
+  /**
+  * Constructor.
+  */
+  private ValidadorUsuarios() {
   }
 
-  public static boolean validar(){
+  /**
+  * @return boolean.
+  */
+  public static boolean validar() {
     String dni = ComponentesUsuariosRegistrar.fieldDni.getText();
     String username = ComponentesUsuariosRegistrar.fieldUsername.getText();
     String contrasena = ComponentesUsuariosRegistrar.fieldContrasena.getText();

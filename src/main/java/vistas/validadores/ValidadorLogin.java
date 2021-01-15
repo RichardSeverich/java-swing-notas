@@ -4,12 +4,20 @@ import datos.ConexionSelectLogin;
 import listas.ContainerListas;
 import vistas.componentes.ComponentesLogin;
 
-public class ValidadorLogin {
+/**
+* Class.
+*/
+public final class ValidadorLogin {
 
-  private ValidadorLogin(){
-
+  /**
+  * Constructor.
+  */
+  private ValidadorLogin() {
   }
 
+  /**
+  * @return boolean.
+  */
   public static boolean validar() {
     String userName = ComponentesLogin.fieldUserName.getText();
     String password = ComponentesLogin.fieldPassword.getText();

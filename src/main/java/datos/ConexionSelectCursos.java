@@ -7,13 +7,20 @@ import java.sql.Statement;
 import listas.ContainerListas;
 import modelos.Curso;
 
-public class ConexionSelectCursos {
+/**
+* Class.
+*/
+public final class ConexionSelectCursos {
 
-  public ConexionSelectCursos() {
-
+  /**
+  * Constructor.
+  */
+  private ConexionSelectCursos() {
   }
 
-  /**Construye SQL.*/
+  /**
+  * Method muestra todos los cursos.
+  */
   public static void execute() {
     Connection connection = Conexion.open();
     Statement statement = null;
@@ -35,7 +42,6 @@ public class ConexionSelectCursos {
       System.out.println("Operation done successfully");
     } catch (Exception e) {
       System.err.println(e.getClass().getName() + ": " + e.getMessage());
-      //System.exit(0);
     }
   }
 }

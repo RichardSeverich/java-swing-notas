@@ -2,10 +2,16 @@ package vistas.ventanas;
 
 import vistas.componentes.ComponentesMateriasRegistrar;
 
+/**
+* Class.
+*/
 public class VentanaMateriasRegistrar extends VentanaDashboard {
 
-  public VentanaMateriasRegistrar(){
+  /**
+  * Constructor.
+  */
+  public VentanaMateriasRegistrar() {
     super();
-    ComponentesMateriasRegistrar.set(this); 
+    ComponentesMateriasRegistrar.set(this);
   }
 }

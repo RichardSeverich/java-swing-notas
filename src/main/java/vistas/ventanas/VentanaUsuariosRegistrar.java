@@ -2,10 +2,16 @@ package vistas.ventanas;
 
 import vistas.componentes.ComponentesUsuariosRegistrar;
 
+/**
+* Class.
+*/
 public class VentanaUsuariosRegistrar extends VentanaDashboard {
 
-  public VentanaUsuariosRegistrar(){
+  /**
+  * Constructor.
+  */
+  public VentanaUsuariosRegistrar() {
     super();
-    ComponentesUsuariosRegistrar.set(this); 
+    ComponentesUsuariosRegistrar.set(this);
   }
 }

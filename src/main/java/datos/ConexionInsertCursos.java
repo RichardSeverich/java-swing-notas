@@ -1,15 +1,21 @@
 package datos;
 
-import java.lang.StringBuilder;
 import modelos.Curso;
 
-public class ConexionInsertCursos {
+/**
+* Class.
+*/
+public final class ConexionInsertCursos {
 
+  /**
+  * Constructor.
+  */
   private ConexionInsertCursos() {
-
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param curso curso.
+  */
   public static void execute(Curso curso) {
     StringBuilder sql = new StringBuilder();
     sql.append("INSERT INTO courses");

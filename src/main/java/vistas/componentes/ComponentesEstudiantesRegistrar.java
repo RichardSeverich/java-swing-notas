@@ -15,7 +15,10 @@ import vistas.eventos.EventosEstudiantesRegistrar;
 import vistas.utiles.DateLabelFormatter;
 import vistas.ventanas.VentanaEstudiantesRegistrar;
 
-public class ComponentesEstudiantesRegistrar {
+/**
+* Class.
+*/
+public final class ComponentesEstudiantesRegistrar {
   public static JTextField fieldDni;
   public static JTextField fieldNombres;
   public static JTextField fieldApellidos;
@@ -24,25 +27,25 @@ public class ComponentesEstudiantesRegistrar {
   public static JTextField fieldDireccion;
   public static JTextField fieldEmail;
 
-  private ComponentesEstudiantesRegistrar(){
+  /**
+  * Constructor.
+  */
+  private ComponentesEstudiantesRegistrar() {
   }
 
-  /** 
-   * Set Componentes.
+  /**
    * @param ventana ventana.
   */
   public static void set(VentanaEstudiantesRegistrar ventana) {
     JPanel panel = new JPanel();
     ventana.frame.add(panel);
-    panel.setBounds(200, 20, 500, 630);
+    panel.setBounds(200, 20, 500, 550);
     panel.setLayout(null);
-
     // Titulo
     JLabel labelTitulo = new JLabel("Registrar Estudiantes");
     labelTitulo.setFont(new Font("Arial", Font.PLAIN, 22));
     labelTitulo.setBounds(200, 30, 250, 50);
     panel.add(labelTitulo);
-
     // dni
     JLabel labelDni = new JLabel("Numero Identidad");
     fieldDni = new JTextField();
@@ -50,7 +53,6 @@ public class ComponentesEstudiantesRegistrar {
     fieldDni.setBounds(200, 100, 200, 25);
     panel.add(labelDni);
     panel.add(fieldDni);
-
     // Nombres
     JLabel labelNombres = new JLabel("Nombres");
     fieldNombres = new JTextField();
@@ -58,7 +60,6 @@ public class ComponentesEstudiantesRegistrar {
     fieldNombres.setBounds(200, 150, 200, 25);
     panel.add(labelNombres);
     panel.add(fieldNombres);
-
     // Apellidos
     JLabel labelApellidos = new JLabel("Apellidos");
     fieldApellidos = new JTextField();
@@ -66,7 +67,6 @@ public class ComponentesEstudiantesRegistrar {
     fieldApellidos.setBounds(200, 200, 200, 25);
     panel.add(labelApellidos);
     panel.add(fieldApellidos);
-
     // Fecha nacimiento
     UtilDateModel model = new UtilDateModel();
     Properties properties = new Properties();
@@ -81,7 +81,6 @@ public class ComponentesEstudiantesRegistrar {
     datePicker.setBounds(200, 250, 200, 25);
     panel.add(labelFechaNacimiento);
     panel.add(datePicker);
-
     // Telefono
     JLabel labelTelefono = new JLabel("Telefono");
     fieldTelefono = new JTextField();
@@ -89,7 +88,6 @@ public class ComponentesEstudiantesRegistrar {
     fieldTelefono.setBounds(200, 300, 200, 25);
     panel.add(labelTelefono);
     panel.add(fieldTelefono);
-
     // Direccion
     JLabel labelDireccion = new JLabel("Direccion");
     fieldDireccion = new JTextField();
@@ -97,7 +95,6 @@ public class ComponentesEstudiantesRegistrar {
     fieldDireccion.setBounds(200, 350, 200, 25);
     panel.add(labelDireccion);
     panel.add(fieldDireccion);
-
     // Email
     JLabel labelEmail = new JLabel("Correo");
     fieldEmail = new JTextField();
@@ -105,23 +102,22 @@ public class ComponentesEstudiantesRegistrar {
     fieldEmail.setBounds(200, 400, 200, 25);
     panel.add(labelEmail);
     panel.add(fieldEmail);
-
     // Boton Registrar
     JButton registrarButton = new JButton("Guardar");
-    registrarButton.setBounds(200, 520, 200, 30);
+    registrarButton.setBounds(200, 480, 200, 30);
     EventosEstudiantesRegistrar eventosEstudiantesRegistrar = new EventosEstudiantesRegistrar();
     registrarButton.addActionListener(eventosEstudiantesRegistrar);
     panel.add(registrarButton);
-
     // Titulo y Borde
     String title = "Registrar";
     Border border = BorderFactory.createTitledBorder(title);
     panel.setBorder(border);
   }
 
-  /** Limpia comoponentes */
+  /**
+   * Method limpia componentes.
+  */
   public static void limpiar() {
-    // Set valores a los componenentes del modal.
     ComponentesEstudiantesRegistrar.fieldDni.setText("");
     ComponentesEstudiantesRegistrar.fieldNombres.setText("");
     ComponentesEstudiantesRegistrar.fieldApellidos.setText("");

@@ -12,19 +12,28 @@ import modelos.Estudiante;
 import vistas.componentes.ComponentesEstudiantesRegistrar;
 import vistas.validadores.ValidadorEstudiantes;
 
-
+/**
+* Class.
+*/
 public class EventosEstudiantesRegistrar implements ActionListener {
   public static boolean editar;
   public static int id;
 
+  /**
+  * Constructor.
+  */
   public EventosEstudiantesRegistrar() {
     this.editar = false;
     this.id = 0;
   }
 
+  /**
+  * {@inheritDoc}
+  */
+  @Override
   public void actionPerformed(ActionEvent actionEvent) {
     boolean esValido = ValidadorEstudiantes.validar();
-    if(esValido) {
+    if (esValido) {
       Estudiante estudiante = new Estudiante();
       estudiante.dni = ComponentesEstudiantesRegistrar.fieldDni.getText();
       estudiante.nombres = ComponentesEstudiantesRegistrar.fieldNombres.getText();
@@ -34,7 +43,7 @@ public class EventosEstudiantesRegistrar implements ActionListener {
       estudiante.telefono = ComponentesEstudiantesRegistrar.fieldTelefono.getText();
       estudiante.direccion = ComponentesEstudiantesRegistrar.fieldDireccion.getText();
       estudiante.email = ComponentesEstudiantesRegistrar.fieldEmail.getText();
-      if(this.editar) {
+      if (this.editar) {
         this.modificar(estudiante);
       } else {
         this.crear(estudiante);
@@ -42,12 +51,18 @@ public class EventosEstudiantesRegistrar implements ActionListener {
     }
   }
 
-  private void crear(Estudiante estudiante){
+  /**
+   * @param estudiante estudiante.
+  */
+  private void crear(Estudiante estudiante) {
     ConexionInsertEstudiantes.execute(estudiante);
     showMessageDialog(null, "Registrado exitosamente");
   }
 
-  private void modificar(Estudiante estudiante){
+  /**
+   * @param estudiante estudiante.
+  */
+  private void modificar(Estudiante estudiante) {
     estudiante.id = this.id;
     ConexionUpdateEstudiantes.execute(estudiante);
     showMessageDialog(null, "Editado exitosamente");

@@ -7,13 +7,21 @@ import java.sql.Statement;
 import modelos.Usuario;
 import listas.ContainerListas;
 
-public class ConexionSelectLogin {
+/**
+* Class.
+*/
+public final class ConexionSelectLogin {
 
-  public ConexionSelectLogin() {
-
+  /**
+  * Constructor.
+  */
+  private ConexionSelectLogin() {
   }
 
-  /**Construye SQL.*/
+  /**
+  * @param userName userName.
+  * @param password password.
+  */
   public static void execute(String userName, String password) {
     Connection connection = Conexion.open();
     Statement statement = null;
