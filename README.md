@@ -65,7 +65,7 @@ password: secret123
 ### Entity Relation Chen Notation Diagram
 
 <p align="center">
-  <img src="documentation/class-diagram.jpg">
+  <img src="documentation/entity-relation-notation-chen.jpg">
 </p>
 
 ### Entity Relation Crows Foot Diagram
